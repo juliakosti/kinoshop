@@ -3,10 +3,11 @@ require_once 'admin/constdata/data.php';
 
 class BaseConnect {
 
-	private $db;
+	public $db;
 	private $dbname;
 	private $dbuser;
 	private $dbpass;
+	
 
 	public function __construct($dbname, $dbuser, $dbpass){
 		$this->dbname = $dbname;
@@ -22,5 +23,6 @@ class BaseConnect {
 		
 	}
 
+	
 	
 }
