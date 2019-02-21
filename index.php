@@ -7,8 +7,11 @@ require_once 'shop/basereq_class.php';
 
 $products = new Products();
 //echo $products->db->dbname;
-
-$products->GetAllProducts();
+echo '<br/>';
+//$products->GetAllProducts();
+//print_r($products->sel);
+echo '<br/>';
+$products->GetProductByID('2');
 print_r($products->sel);
 
 
