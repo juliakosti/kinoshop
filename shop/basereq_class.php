@@ -39,6 +39,47 @@ abstract class BaseReq extends BaseConnect {
 		}
 	}
 
+	private function getNewsIds()
+	{
+		$query_inn = "SELECT id from $this->tablename ORDER BY date DESC LIMIT 6";
+		try 
+		{
+			$result = $this->db->query($query_inn);
+			$i = 1;
+			while($res = $result->fetch(PDO::FETCH_ASSOC))
+				{
+					$this->ids[$i] = $res; $i++;
+				}
+			return $this->ids;
+		
+
+		} catch (PDOException $e) 
+		{
+	    	echo 'Ошибка выполнения запроса: ' . $e->getMessage();
+		}
+	}
+
+	protected function getAllNews($params, $tablename, $param, $myparam, $order='title') 
+	{
+		$query_out = "SELECT $params from $tablename WHERE id= $id ORDER BY $order";
+		try 
+		{
+			$result = $this->db->query($query_out);
+			$i = 1;
+			while($res = $result->fetch(PDO::FETCH_ASSOC))
+				{
+					$this->sel[$i] = $res; $i++;
+				}
+			return $this->sel;
+		
+
+		} catch (PDOException $e) 
+		{
+	    	echo 'Ошибка выполнения запроса: ' . $e->getMessage();
+		}
+	}
+
+
 
 
 	protected function getOnebySmth($params, $tablename, $param, $myparam, $order='title', $desc=false)

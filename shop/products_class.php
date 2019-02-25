@@ -14,6 +14,11 @@ class Products extends BaseReq
 		return $this->getAll("id, title, price", $this->tablename, $order, $desc);
 	}
 
+	public function getAllNewProd() 
+	{
+		return $this->getAllNews($this->tablename);
+	}
+
 	
 	public function GetProductByID($id)
 	{
