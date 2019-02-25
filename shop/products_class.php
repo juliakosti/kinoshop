@@ -6,7 +6,7 @@ class Products extends BaseReq
 
 	function __construct()	
 	{
-	parent::__construct("sdvd_products");
+		parent::__construct("sdvd_products");
 	}
 	
 	public function GetAllProducts($order ='title', $desc = false) 

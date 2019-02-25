@@ -14,40 +14,44 @@ abstract class BaseReq extends BaseConnect {
 
 	protected function getAll($params, $tablename, $order='title', $desc=false) 
 	{
-	try {
-			if (!$desc) 
-			{
-				$query = "SELECT $params from $this->tablename ORDER BY $order" ;
-			} else 
-			{
-				$query = "SELECT $params from $this->tablename ORDER BY $order DESC"; 
-			}	
-		
-		$result = $this->db->query($query);
-		$i = 1;
-		while($res = $result->fetch(PDO::FETCH_ASSOC)){
-			$this->sel[$i] = $res; $i++;
-		}
-		return $this->sel;
+		if (!$desc) 
+		{
+			$query = "SELECT $params from $this->tablename ORDER BY $order" ;
+		} else 
+		{
+			$query = "SELECT $params from $this->tablename ORDER BY $order DESC"; 
+		}	
+
+		try 
+		{
+			$result = $this->db->query($query);
+			$i = 1;
+			while($res = $result->fetch(PDO::FETCH_ASSOC))
+				{
+					$this->sel[$i] = $res; $i++;
+				}
+			return $this->sel;
 		
 
 		} catch (PDOException $e) 
 		{
-	    echo 'Ошибка выполнения запроса: ' . $e->getMessage();
+	    	echo 'Ошибка выполнения запроса: ' . $e->getMessage();
 		}
 	}
 
+
+
 	protected function getOnebySmth($params, $tablename, $param, $myparam, $order='title', $desc=false)
 	{
+		if (!$desc)
+		{
+			$query = "SELECT $params from $tablename WHERE $param= $myparam ORDER BY $order";
+		} else 
+		{
+			$query = "SELECT $params from $tablename WHERE $param= $myparam ORDER BY $order DESC";
+		} 
 		try
 		{
-			if (!$desc)
-			{
-			$query = "SELECT $params from $tablename WHERE $param= $myparam ORDER BY $order";
-			} else 
-			{
-				$query = "SELECT $params from $tablename WHERE $param= $myparam ORDER BY $order DESC";
-			} 
 			$result = $this->db->prepare($query);
 			$result -> execute();
 			$i = 1;
