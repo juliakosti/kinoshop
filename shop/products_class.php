@@ -9,15 +9,20 @@ class Products extends BaseReq
 	parent::__construct("sdvd_products");
 	}
 	
-	public function GetAllProducts() 
+	public function GetAllProducts($order ='title', $desc = false) 
 	{
-		return $this->getAll("id, title", $this->tablename);
+		return $this->getAll("id, title, price", $this->tablename, $order, $desc);
 	}
 
+	
 	public function GetProductByID($id)
 	{
 		return $this->getOnebySmth('title', $this->tablename, 'id', $id);
 	}
 	
+	public function GetProductsBySectionID($sec_id, $order ='title', $desc = false)
+	{
+		return $this->getOnebySmth('title, price', $this->tablename, 'section_id', $sec_id, $order, $desc);
+	}
 
 }

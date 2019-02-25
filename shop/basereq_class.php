@@ -12,10 +12,17 @@ abstract class BaseReq extends BaseConnect {
 		$this->tablename = $tablename;
 	}
 
-	protected function getAll($params, $tablename) 
+	protected function getAll($params, $tablename, $order='title', $desc=false) 
 	{
 	try {
-		$query = "SELECT $params from $this->tablename";
+			if (!$desc) 
+			{
+				$query = "SELECT $params from $this->tablename ORDER BY $order" ;
+			} else 
+			{
+				$query = "SELECT $params from $this->tablename ORDER BY $order DESC"; 
+			}	
+		
 		$result = $this->db->query($query);
 		$i = 1;
 		while($res = $result->fetch(PDO::FETCH_ASSOC)){
@@ -30,11 +37,17 @@ abstract class BaseReq extends BaseConnect {
 		}
 	}
 
-	protected function getOnebySmth($params, $tablename, $param, $myparam)
+	protected function getOnebySmth($params, $tablename, $param, $myparam, $order='title', $desc=false)
 	{
 		try
 		{
-			$query = "SELECT $params from $tablename WHERE $param= $myparam";
+			if (!$desc)
+			{
+			$query = "SELECT $params from $tablename WHERE $param= $myparam ORDER BY $order";
+			} else 
+			{
+				$query = "SELECT $params from $tablename WHERE $param= $myparam ORDER BY $order DESC";
+			} 
 			$result = $this->db->prepare($query);
 			$result -> execute();
 			$i = 1;
