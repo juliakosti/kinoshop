@@ -30,6 +30,16 @@ class Products extends BaseReq
 	}
 
 	
+	public function getProdBySection($section_id, $order='title', $desc=false)
+	{
+		$sectionProd = $this->getOnebySmth('*', $this->tablename, 'section_id', $section_id, $order, $desc);
+		//временно
+		echo '<pre>';	
+		print_r($sectionProd);
+		echo '</pre>';
+	}
+	
+	
 	public function GetProductByID($id)
 	{
 		return $this->getOnebySmth('title', $this->tablename, 'id', $id);
