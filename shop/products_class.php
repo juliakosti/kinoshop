@@ -14,28 +14,20 @@ class Products extends BaseReq
 		return $this->getAll("id, title, price", $this->tablename, $order, $desc);
 	}
 
-    //try
     
-    
-    public function getAllNewProd() 
+    public function getNewProd($param='price', $order=SORT_ASC) 
 	{   
 		$newProd = $this->getNews($this->tablename);
-		echo '<pre>';
-		//print_r($newProd);
-		echo '</pre>';
-		foreach ($newProd as $key => $row) {
-			$array_price[$key] = $row['price'];
+		foreach ($newProd as $key => $row) 
+		{
+			$array_price[$key] = $row[$param];
 		}
-		array_multisort($array_price, SORT_ASC, $newProd);
+		array_multisort($array_price, $order, $newProd);
+		//временно
 		echo '<pre>';	
 		print_r($newProd);
 		echo '</pre>';
 	}
-
-
-	
-	//end of try
-	
 
 	
 	public function GetProductByID($id)

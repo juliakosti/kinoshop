@@ -6,36 +6,18 @@ require_once 'shop/basereq_class.php';
 
 
 $products = new Products();
-//echo $products->db->dbname;
+
 echo '<br/>';
-$products->getAllNewProd();
-//$products->GetProductsBySectionID(5);
+
+$products->getNewProd('title');
+
 echo '<pre>';
-print_r($products->ids);
-print_r($products->sel);
+//print_r($products->ids);
+
 echo '</pre>';
 echo '<br/>';
-//$products->GetProductByID('2');
+echo '<pre>';
+
 //print_r($products->sel);
-
-
-//$dbj = new BaseConnect(KS_BASE, KS_BASE_US, KS_BASE_PASS);
-/*try {
-		    $db = new PDO("mysql:host=localhost;dbname=kinoshop", "root", "");
-		    echo 'Удачное подключение!';
-		} catch (PDOException $e) {
-		    print "Произошла ошибка. Мы уже оповещены о ней и разбираемся в ситуации. Попробуйте зайти на сайт позже:  " . $e->getMessage() . "<br/>";
-		    die();
-		}
-
-
-			$query = "SELECT title from sdvd_products";
-			$result = $db->query($query);
-			$i = 1;
-			while($res = $result->fetch(PDO::FETCH_ASSOC)){
-				$sel[$i] = $res; $i++;
-			}
-			print_r($sel);*/
-			
-
-		
+echo '</pre>';
+echo '<br/>';
