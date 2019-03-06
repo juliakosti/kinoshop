@@ -61,7 +61,7 @@ abstract class BaseReq extends BaseConnect {
 
 	
 	
-	protected function getOnebySmth($params, $tablename, $param, $myparam, $order='title', $desc=false)
+	protected function getOnebySmth($params, $tablename, $param, $myparam, $order, $desc)
 	{
 		if (!$desc)
 		{
