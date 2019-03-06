@@ -14,10 +14,6 @@ class Sections extends BaseReq
 		return $this->getAll("title", $this->tablename);
 	}
 
-	public function GetSectionByID($id)
-	{
-		return $this->getOnebySmth('title', $this->tablename, 'id', $id);
-	}
 	
 
 }
