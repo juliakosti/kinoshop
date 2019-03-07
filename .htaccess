@@ -1,1 +1,18 @@
 AddDefaultCharset UTF-8
+RewriteEngine On
+
+#для безопасности
+php_value register_globals 0
+
+#удаляем слеш в конце
+RewriteBase /
+RewriteCond %{HTTP_HOST} (.*)
+RewriteCond %{REQUEST_URI} /$ [NC]
+RewriteRule ^(.*)(/)$ $1 [L,R=301]
+
+
+#если не директория и не файл, то идет переадресация на #главную страницу с выделением строки запроса после ?
+Options +FollowSymlinks
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) /?%{QUERY_STRING}

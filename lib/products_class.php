@@ -9,7 +9,7 @@ class Products extends BaseReq
 		parent::__construct("sdvd_products");
 	}
 	
-	public function GetAllProducts($order ='title', $desc = false) 
+	public function getAllProducts($order ='title', $desc = false) 
 	{
 		return $this->getAll("id, title, price", $this->tablename, $order, $desc);
 	}
@@ -40,12 +40,12 @@ class Products extends BaseReq
 	}
 	
 	
-	public function GetProductByID($id)
+	public function getProductByID($id)
 	{
 		return $this->getOnebySmth('title', $this->tablename, 'id', $id);
 	}
 	
-	public function GetProductsBySectionID($sec_id, $order ='title', $desc = false)
+	public function getProductsBySectionID($sec_id, $order ='title', $desc = false)
 	{
 		return $this->getOnebySmth('title, price', $this->tablename, 'section_id', $sec_id, $order, $desc);
 	}

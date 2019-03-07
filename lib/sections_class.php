@@ -9,7 +9,7 @@ class Sections extends BaseReq
 	parent::__construct("sdvd_sections");
 	}
 	
-	public function GetAllSections() 
+	public function getAllSections() 
 	{
 		return $this->getAll("title", $this->tablename);
 	}
