@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once 'admin/constdata/data.php';
 
 class BaseConnect {

@@ -17,16 +17,15 @@ class Products extends BaseReq
     
     public function getNewProd($param='price', $order=SORT_ASC) 
 	{   
-		$newProd = $this->getNews($this->tablename);
+		$newProd = $this->getNews('id, title, img, price', $this->tablename);
 		foreach ($newProd as $key => $row) 
 		{
 			$array_price[$key] = $row[$param];
 		}
 		array_multisort($array_price, $order, $newProd);
-		//временно
-		echo '<pre>';	
-		print_r($newProd);
-		echo '</pre>';
+		
+		return $newProd;
+		
 	}
 
 	

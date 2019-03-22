@@ -39,9 +39,9 @@ abstract class BaseReq extends BaseConnect {
 		}
 	}
 
-	protected function getNews($tablename)
+	protected function getNews($params, $tablename)
 	{
-		$query_inn = "SELECT * from $tablename ORDER BY date DESC LIMIT 6";
+		$query_inn = "SELECT $params from $tablename ORDER BY date DESC LIMIT 6";
 		try 
 		{
 			$result = $this->db->query($query_inn);
