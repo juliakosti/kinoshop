@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Магазин</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Вёрстка интернет-магазина" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="css/main.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script  src="js/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+<!--Главная обёртка -->
+<div class="wrap">
+<!--Шапка -->
+	<header>
+		<span class="k1"></span>
+		<span class="k2"></span>
+		<span class="k3"></span>
+		<span class="k4"></span>
+		<span class="k5"></span>
+		
+		<div class="logo">
+			<a href="index.html">Site.ru</a>
+			<a href="tel:+78001234567">8-800-123-45-67</a>
+			<p>Время работы: с 09:00 до 21:00</p>
+			<p>без перерыва и выходных</p>
+		
+		</div>
+		<div class="basket">
+			<h3>Корзина</h3>
+			<div class="wrapper">
+				<a href="#" class="order">Текущий заказ</a><br>
+				<p>В корзине <span class="quantity">2</span> товара</p>
+				<p>на сумму <span class="cost">700</span> руб.</p>
+			</div>
+			<a href="kart.html" class="btn1">Перейти в корзину</a>
+		</div>
+		
+	</header>
+	<!--/Шапка -->
+	<!--Меню и поиск -->
+	<div class="header_bottom">
+		<!--Скрытая кнопка бутера -->
+			<input type="checkbox" id="hamburger" class="hidden-menu-ticker ">
+			<label class="btn-menu" for="hamburger">
+			  <span class="first"></span>
+			  <span class="second"></span>
+			  <span class="third"></span>
+			</label>
+		<!--/Скрытая кнопка бутера -->
+		<div class="top">
+			<nav>
+				<a href="index.html">Главная</a><img src="img/line.png" alt="#">
+				<a href="defrayal.html">Оплата и доставка</a><img src="img/line.png" alt="#">
+				<a class="active" href="contacts.html">Контакты</a>
+			</nav>
+		</div>
+		<div class="search">
+			<input id="search" type="text" placeholder="Поиск" onblur="checkInput(this)">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+	</div>
+	<!--/Меню и поиск -->
+	<!--Боковая секция -->
+		<div class="start"></div>
+	<div class="sections">
+		<div class="stop"></div>
+		<h2>Разделы</h2>
+		<ul>
+			<li><a href="#">Арт-хаус</a></li>
+			<li><a href="#">Аниме</a></li>
+			<li><a href="#">Биографические фильмы</a></li>
+			<li class="bullet"><a href="#">Боевики</a></li>
+			<li class="bullet"><a href="#">Вестерн</a></li>
+			<li class="bullet"><a href="#">Военное кино</a></li>
+			<li><a href="#">Детектив</a></li>
+			<li><a href="#">Детское / Семейное</a></li>
+			<li><a href="#">Документальные</a></li>
+			<li><a href="#">Драма</a></li>
+			<li><a href="#">Индийское кино</a></li>
+			<li><a href="#">Исторические</a></li>
+			<li><a href="#">Комедии</a></li>
+			<li><a href="#">Криминал</a></li>
+			<li><a href="#">Мелодрама</a></li>
+			<li><a href="#">Мистика</a></li>
+			<li><a href="#">Музыкальные фильмы</a></li>
+			<li><a href="#">Мультфильмы</a></li>
+			<li><a href="#">Мюзиклы</a></li>
+			<li><a href="#">Образовательные</a></li>
+			<li><a href="#">Приключения</a></li>
+			<li><a href="#">Сериалы</a></li>
+			<li><a href="#">Триллеры</a></li>
+			<li><a href="#">Ужасы</a></li>
+			<li><a href="#">Фантастика</a></li>
+			<li><a href="#">Эротика</a></li>
+		</ul>
+	</div>
+	<!--/Боковая секция -->
+	<!--Основной контент -->
+	<div class="content_contacts">
+	<!--Крошки -->
+		<div class="bredcrams">
+			<ul>
+				<li>
+					<a href="index.html">Главная</a>
+					<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+				</li>
+				<li>Контакты</li>
+			</ul>
+		</div>
+		<!--/Крошки -->
+		<div class="contacts">
+			<h1>Контакты</h1>
+			<div class="people">
+				<div class="bottom">
+					<span>подробнее</span>
+					<h2>Менеджер по чему-то там</h2>
+					<p>Телефон: 8 (902) 3333 3456</p>
+					<p>Почта: qqqqq@mail.ru</p>
+					<p>Skype: ferferg</p>
+				</div>
+			</div>
+			<div class="people">
+				<div class="bottom">
+					<span>подробнее</span>
+					<h2>Менеджер по чему-то там</h2>
+					<p>Телефон: 8 (904) 3333 3456</p>
+					<p>Почта: qqqqq@mail.ru</p>
+					<p>Skype: ferferg</p>
+				</div>
+			</div>
+			<div class="people">
+				<div class="bottom">
+					<span>подробнее</span>
+					<h2>Менеджер по чему-то там</h2>
+					<p>Телефон: 8 (903) 3333 3456</p>
+					<p>Почта: qqqqq@mail.ru</p>
+					<p>Skype: ferferg</p>
+				</div>
+			</div>
+			<div class="people">
+				<div class="bottom">
+					<span>подробнее</span>
+					<h2>Стажёр</h2>
+					<p>Телефон: 8 (901) 3333 3456</p>
+					<p>Почта: qqqqq@mail.ru</p>
+					<p>Skype: ferferg</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!--/Основной контент -->
+	<!--Оплата -->
+	<div class="payment">
+			<p>Способы оплаты: </p>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+	</div>
+	<!--/Оплата -->
+	<!--Подвал -->
+	<footer>
+		<span></span>
+		<span></span>
+		<span></span>
+		<p>Copyright © Site.ru. Все права защищены.</p>
+	</footer>
+	<!--/Подвал -->
+</div>
+<!--/Главная обёртка -->
+
+	
+
+<!--Разделы в мобильном -->
+<script>
+$(".start").click(function(){
+ $('.sections').toggleClass("action");
+ 
+});
+$(".stop").click(function(){
+ $('.sections').toggleClass("action");
+ 
+});
+
+</script> 
+</body>
+</html>

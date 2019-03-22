@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Магазин</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Вёрстка интернет-магазина" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="css/main.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script  src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<!--Главная обёртка -->
+<div class="wrap">
+<!--Шапка -->
+	<header>
+		<span class="k1"></span>
+		<span class="k2"></span>
+		<span class="k3"></span>
+		<span class="k4"></span>
+		<span class="k5"></span>
+		
+		<div class="logo">
+			<a href="index.html">Site.ru</a>
+			<a href="tel:+78001234567">8-800-123-45-67</a>
+			<p>Время работы: с 09:00 до 21:00</p>
+			<p>без перерыва и выходных</p>
+		
+		</div>
+		<div class="basket">
+			<h3>Корзина</h3>
+			<div class="wrapper">
+				<a href="#" class="order">Текущий заказ</a><br>
+				<p>В корзине <span class="quantity">2</span> товара</p>
+				<p>на сумму <span class="cost">700</span> руб.</p>
+			</div>
+			<a href="kart.html" class="btn1">Перейти в корзину</a>
+		</div>
+		
+	</header>
+	<!--/Шапка -->
+	<!--Меню и поиск -->
+	<div class="header_bottom">
+		<!--Скрытая кнопка бутера -->
+			<input type="checkbox" id="hamburger" class="hidden-menu-ticker ">
+			<label class="btn-menu" for="hamburger">
+			  <span class="first"></span>
+			  <span class="second"></span>
+			  <span class="third"></span>
+			</label>
+		<!--/Скрытая кнопка бутера -->
+		
+		<div class="top">
+			<nav>
+				<a href="index.html">Главная</a><img src="img/line.png" alt="#">
+				<a href="defrayal.html">Оплата и доставка</a><img src="img/line.png" alt="#">
+				<a href="contacts.html">Контакты</a>
+			</nav>
+		</div>
+		<div class="search">
+			<input id="search" type="text" placeholder="Поиск" onblur="checkInput(this)">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+	</div>
+	<!--/Меню и поиск -->
+	<!--Боковая панель -->
+		<div class="start"></div>
+	<div class="sections">
+		<div class="stop"></div>
+		<h2>Разделы</h2>
+		<ul>
+			<li><a href="#">Арт-хаус</a></li>
+			<li><a href="#">Аниме</a></li>
+			<li><a href="#">Биографические фильмы</a></li>
+			<li class="bullet"><a href="#">Боевики</a></li>
+			<li class="bullet"><a href="#">Вестерн</a></li>
+			<li class="bullet"><a href="#">Военное кино</a></li>
+			<li><a href="#">Детектив</a></li>
+			<li><a href="#">Детское / Семейное</a></li>
+			<li><a href="#">Документальные</a></li>
+			<li><a href="#">Драма</a></li>
+			<li><a href="#">Индийское кино</a></li>
+			<li><a href="#">Исторические</a></li>
+			<li><a href="#">Комедии</a></li>
+			<li><a href="#">Криминал</a></li>
+			<li><a href="#">Мелодрама</a></li>
+			<li><a href="#">Мистика</a></li>
+			<li><a href="#">Музыкальные фильмы</a></li>
+			<li><a href="#">Мультфильмы</a></li>
+			<li><a href="#">Мюзиклы</a></li>
+			<li><a href="#">Образовательные</a></li>
+			<li><a href="#">Приключения</a></li>
+			<li><a href="#">Сериалы</a></li>
+			<li><a href="#">Триллеры</a></li>
+			<li><a href="#">Ужасы</a></li>
+			<li><a href="#">Фантастика</a></li>
+			<li><a href="#">Эротика</a></li>
+		</ul>
+	</div>
+	<!--/Боковая панель -->
+	<!--Основной контент -->
+	<div class="content_cart">
+		<h1>Оформление заказа</h1>
+		<!--Форма -->
+		<form class="form_1" action="script.php" method="post">
+			<div>
+				<label for="fio">ФИО: </label>
+				<input id="fio" type="text" name="fio">
+			</div>
+			<div>
+				<label for="phone">Телефон: </label>
+				<input id="phone" type="tel" name="phone">
+			</div>
+			<div>
+				<label for="email">E-mail: </label>
+				<input id="email" type="email" name="email">
+			</div>
+
+			<div class="no-widget">
+				<label>Доставка: </label>
+				<select class="delivery" name="delivery">
+					<option>выберите, пожалуйста...</option>
+					<option>Самовывоз</option>
+					<option>Доставка (500 руб.)</option>
+				</select>
+			 
+				<div class="select" role="listbox">
+					<span class="value">выберите, пожалуйста..</span>
+					<ul class="optList hidden" role="presentation">
+						<li class="option" role="option" aria-selected="true">выберите, пожалуйста...</li>
+						<li class="option" role="option">Самовывоз</li>
+						<li class="option" role="option">Доставка (500 руб.)</li>
+					</ul>
+				 </div>
+			</div>
+			<div class="textarea">
+				<label for="message1">Полный адрес (Страна, город, индекс, улица, дом, квартира):</label>
+				<textarea id="message1" rows="8"></textarea>
+			</div>
+			<div class="textarea">
+				<label for="message2">Примечание к заказу:</label>
+				<textarea id="message2" rows="8"></textarea>
+			</div>
+			<a class="btn4" href="#">Закончить оформление заказа</a>
+		</form>
+	<!--/Форма -->
+		
+	</div>
+	<div class="clear"></div>
+	<!--/Основной контент -->
+	<!--Оплата -->
+	<div class="payment">
+			<p>Способы оплаты: </p>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+	</div>
+	<!--/Оплата -->
+	<!--Подвал -->
+	<footer>
+		<span></span>
+		<span></span>
+		<span></span>
+		<p>Copyright © Site.ru. Все права защищены.</p>
+	</footer>
+	<!--.Подвал -->
+</div>
+<!--/Главная обёртка -->
+<!--Для формы доставки -->
+<script>
+NodeList.prototype.forEach = function (callback) {
+  Array.prototype.forEach.call(this, callback);
+}
+
+// -------------------- //
+// Function definitions //
+// -------------------- //
+
+function deactivateSelect(select) {
+  if (!select.classList.contains('active')) return;
+
+  var optList = select.querySelector('.optList');
+
+  optList.classList.add('hidden');
+  select.classList.remove('active');
+}
+
+function activeSelect(select, selectList) {
+  if (select.classList.contains('active')) return;
+
+  selectList.forEach(deactivateSelect);
+  select.classList.add('active');
+};
+
+function toggleOptList(select, show) {
+  var optList = select.querySelector('.optList');
+
+  optList.classList.toggle('hidden');
+}
+
+function highlightOption(select, option) {
+  var optionList = select.querySelectorAll('.option');
+
+  optionList.forEach(function (other) {
+    other.classList.remove('highlight');
+  });
+
+  option.classList.add('highlight');
+};
+
+function updateValue(select, index) {
+  var nativeWidget = select.previousElementSibling;
+  var value = select.querySelector('.value');
+  var optionList = select.querySelectorAll('.option');
+
+  optionList.forEach(function (other) {
+    other.setAttribute('aria-selected', 'false');
+  });
+
+  optionList[index].setAttribute('aria-selected', 'true');
+
+  nativeWidget.selectedIndex = index;
+  value.innerHTML = optionList[index].innerHTML;
+  highlightOption(select, optionList[index]);
+};
+
+function getIndex(select) {
+  var nativeWidget = select.previousElementSibling;
+
+  return nativeWidget.selectedIndex;
+};
+
+// ------------- //
+// Event binding //
+// ------------- //
+
+window.addEventListener("load", function () {
+  var form = document.querySelector('form');
+ 
+  form.classList.remove("no-widget");
+  form.classList.add("widget");
+});
+
+window.addEventListener('load', function () {
+  var selectList = document.querySelectorAll('.select');
+
+  selectList.forEach(function (select) {
+    var optionList = select.querySelectorAll('.option'),
+        selectedIndex = getIndex(select);
+
+    select.tabIndex = 0;
+    select.previousElementSibling.tabIndex = -1;
+
+    updateValue(select, selectedIndex);
+
+    optionList.forEach(function (option, index) {
+      option.addEventListener('mouseover', function () {
+        highlightOption(select, option);
+      });
+
+      option.addEventListener('click', function (event) {
+        updateValue(select, index);
+      });
+    });
+
+    select.addEventListener('click', function (event) {
+      toggleOptList(select);
+    });
+
+    select.addEventListener('focus', function (event) {
+      activeSelect(select, selectList);
+    });
+
+    select.addEventListener('blur', function (event) {
+      deactivateSelect(select);
+    });
+
+    select.addEventListener('keyup', function (event) {
+      var length = optionList.length,
+          index  = getIndex(select);
+
+      if (event.keyCode === 40 && index < length - 1) { index++; }
+      if (event.keyCode === 38 && index > 0) { index--; }
+
+      updateValue(select, index);
+    });
+  });
+});
+</script>
+	
+
+<!--Разделы в мобильном -->
+<script>
+$(".start").click(function(){
+ $('.sections').toggleClass("action");
+ 
+});
+$(".stop").click(function(){
+ $('.sections').toggleClass("action");
+ 
+});
+
+</script> 
+</body>
+</html>

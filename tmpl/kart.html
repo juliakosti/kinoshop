@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Магазин</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Вёрстка интернет-магазина" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="css/main.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script  src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<!--Главная обёртка -->
+<div class="wrap">
+<!--Шапка -->
+	<header>
+		<span class="k1"></span>
+		<span class="k2"></span>
+		<span class="k3"></span>
+		<span class="k4"></span>
+		<span class="k5"></span>
+		
+		<div class="logo">
+			<a href="index.html">Site.ru</a>
+			<a href="tel:+78001234567">8-800-123-45-67</a>
+			<p>Время работы: с 09:00 до 21:00</p>
+			<p>без перерыва и выходных</p>
+		
+		</div>
+		<div class="basket">
+			<h3>Корзина</h3>
+			<div class="wrapper">
+				<a href="#" class="order">Текущий заказ</a><br>
+				<p>В корзине <span class="quantity">2</span> товара</p>
+				<p>на сумму <span class="cost">700</span> руб.</p>
+			</div>
+			<a href="kart.html" class="btn1">Перейти в корзину</a>
+		</div>
+		
+	</header>
+	<!--/Шапка -->
+	<!--Меню и поиск -->
+	<div class="header_bottom">
+		<!--Скрытая кнопка бутера -->
+			<input type="checkbox" id="hamburger" class="hidden-menu-ticker ">
+			<label class="btn-menu" for="hamburger">
+			  <span class="first"></span>
+			  <span class="second"></span>
+			  <span class="third"></span>
+			</label>
+		<!--/Скрытая кнопка бутера -->
+		<div class="top">
+			<nav>
+				<a href="index.html">Главная</a><img src="img/line.png" alt="#">
+				<a href="defrayal.html">Оплата и доставка</a><img src="img/line.png" alt="#">
+				<a href="contacts.html">Контакты</a>
+			</nav>
+		</div>
+		<div class="search">
+			<input id="search" type="text" placeholder="Поиск" onblur="checkInput(this)">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+	</div>
+	<!--/Меню и поиск -->
+	<!--Боковая панель -->
+		<div class="start"></div>
+	<div class="sections">
+		<div class="stop"></div>
+		<h2>Разделы</h2>
+		<ul>
+			<li><a href="#">Арт-хаус</a></li>
+			<li><a href="#">Аниме</a></li>
+			<li><a href="#">Биографические фильмы</a></li>
+			<li class="bullet"><a href="#">Боевики</a></li>
+			<li class="bullet"><a href="#">Вестерн</a></li>
+			<li class="bullet"><a href="#">Военное кино</a></li>
+			<li><a href="#">Детектив</a></li>
+			<li><a href="#">Детское / Семейное</a></li>
+			<li><a href="#">Документальные</a></li>
+			<li><a href="#">Драма</a></li>
+			<li><a href="#">Индийское кино</a></li>
+			<li><a href="#">Исторические</a></li>
+			<li><a href="#">Комедии</a></li>
+			<li><a href="#">Криминал</a></li>
+			<li><a href="#">Мелодрама</a></li>
+			<li><a href="#">Мистика</a></li>
+			<li><a href="#">Музыкальные фильмы</a></li>
+			<li><a href="#">Мультфильмы</a></li>
+			<li><a href="#">Мюзиклы</a></li>
+			<li><a href="#">Образовательные</a></li>
+			<li><a href="#">Приключения</a></li>
+			<li><a href="#">Сериалы</a></li>
+			<li><a href="#">Триллеры</a></li>
+			<li><a href="#">Ужасы</a></li>
+			<li><a href="#">Фантастика</a></li>
+			<li><a href="#">Эротика</a></li>
+		</ul>
+	</div>
+	<!--/Боковая панель -->
+	<!--Контент главный -->
+	<div class="content_cart">
+		<h1>Корзина</h1>
+		<!--Форма -->
+		<form name="cart" action="#" method="post">
+			<div id="cart">
+				<div class="wrap_1">
+					<table>
+						<thead>
+						  <tr>
+							<th>Товар</th>
+							<th>Цена за 1 шт.</th>
+							<th>Количество</th>
+							<th>Стоимость</th>
+						  </tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-label="Товар">
+									<div class="product pr">
+										<img src="img/s1.png" alt="#">
+										<p>Мамы</p>
+									</div>
+								</td>
+								<td data-label="Цена за 1 шт."><p class="price">200 руб.</p></td>
+								<td data-label="Количество">
+									<p class="quantity1">
+										<input  type="number" min="1" max="99" value="1"> шт. 
+									</p>
+								</td>
+								<td data-label="Стоимость">
+									<div class="cost1">
+										<p>200 руб.</p>
+										<a class="del" href="#">Удалить</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td data-label="Товар">
+									<div class="product pr">
+										<img src="img/s2.png" alt="#">
+										<p>Ледниковый период 4: Континентальный дрейф</p>
+									</div>
+								</td>
+								<td data-label="Цена за 1 шт."><p class="price">170 руб.</p></td>
+								<td data-label="Количество">
+									<p class="quantity1">
+										<input  type="number" min="1" max="99" value="1"> шт. 
+									</p>
+								</td>
+								<td data-label="Стоимость">
+									<div class="cost1">
+										<p>170 руб.</p>
+										<a class="del" href="#">Удалить</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td data-label="Товар">
+									<div class="product pr">
+										<img src="img/s3.png" alt="#">
+										<p>Джентельмены, удачи!</p>
+									</div>
+								</td>
+								<td data-label="Цена за 1 шт."><p class="price">300 руб.</p></td>
+								<td data-label="Количество">
+									<p class="quantity1">
+										<input  type="number" min="1" max="99" value="1"> шт. 
+									</p>
+								</td>
+								<td data-label="Стоимость">
+									<div class="cost1">
+										<p>300 руб.</p>
+										<a class="del" href="#">Удалить</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td data-label="Товар">
+									<div class="product pr">
+										<img src="img/s4.png" alt="#">
+										<p>Хранители снов</p>
+									</div>
+								</td>
+								<td data-label="Цена за 1 шт."><p class="price">250 руб.</p></td>
+								<td data-label="Количество">
+									<p class="quantity1">
+										<input  type="number" min="1" max="99" value="1"> шт. 
+									</p>
+								</td>
+								<td data-label="Стоимость">
+									<div class="cost1">
+										<p>250 руб.</p>
+										<a class="del" href="#">Удалить</a>
+									</div>
+								</td>
+							  </tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="discount">
+					<p>Введите номер купона со скидкой <br>
+						(если есть)
+					</p>
+					<input type="text">
+					<a class="btn2" href="#">Получить скидку</a>
+				</div>
+				<div class="total clearfix">
+					<p>Итого: 2000 руб.</p>
+					<a class="btn3" href="#">Пересчитать</a>
+					<a class="btn4" href="order.html">Оформить заказ</a>
+				</div>
+				
+			</div>
+		</form>
+		<!--/Форма -->
+	</div>
+	<div class="clear"></div>
+	<!--/Контент главный -->
+	<!--Оплата -->
+	<div class="payment">
+			<p>Способы оплаты: </p>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+	</div>
+	<!--/Оплата -->
+	<!--Подвал -->
+	<footer>
+		<span></span>
+		<span></span>
+		<span></span>
+		<p>Copyright © Site.ru. Все права защищены.</p>
+	</footer>
+	<!--/Подвал -->
+</div>
+<!--/Главная обёртка -->
+	
+<!-- Поиск -->
+<script>
+var checkInput = function(input) {
+	if (input.value.length > 0) {
+		input.className = 'active_form';
+	} else {
+		input.className = '';
+	}
+};
+
+</script>
+<!--Разделы в мобильном -->
+<script>
+$(".start").click(function(){
+ $('.sections').toggleClass("action");
+ 
+});
+$(".stop").click(function(){
+ $('.sections').toggleClass("action");
+ 
+});
+
+</script> 
+</body>
+</html>
