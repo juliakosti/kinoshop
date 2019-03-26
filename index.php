@@ -39,7 +39,7 @@ $page = new Page;
 	<!--Основной контент -->
 	<div class="content ">
 		<?
-		$page->TransformNews();
+		
 		$page->getContent();?>
 		<!--content.tpl -->
 				

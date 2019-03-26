@@ -3,19 +3,36 @@ require_once 'basereq_class.php';
 
 class Products extends BaseReq 
 { 
-    
+    public $newProd;
+    private $config;
+
 	function __construct()	
 	{
 		parent::__construct("sdvd_products");
+		$this->config = new Config;
+		
 	}
 	
+	public function news()
+	{
+		return $this->transformProd($this->getNewProd());
+	}
+
+	private function transformProd($arr)
+	{   
+		foreach ($arr as $key => $value) {
+			$arr[$key]['img'] = $this->config->dirProdImg.$arr[$key]['img'];
+		}
+		return $arr;
+	}
+
 	public function getAllProducts($order ='title', $desc = false) 
 	{
 		return $this->getAll("id, title, price", $this->tablename, $order, $desc);
 	}
 
     
-    public function getNewProd($param='price', $order=SORT_ASC) 
+    private function getNewProd($param='price', $order=SORT_ASC) 
 	{   
 		$newProd = $this->getNews('id, title, img, price', $this->tablename);
 		foreach ($newProd as $key => $row) 

@@ -11,7 +11,7 @@ class Page
 	private $products;
 	private $sections;
 	private $url;
-	public $x;
+	
 
 	public function __construct()
 	{
@@ -21,20 +21,12 @@ class Page
 		$this->url = new URL;
 
 		$this->secArray = $this->sections->getAllSections();
-		
+		$this->newsArray = $this->products->news();
 		
 
 	}
 	
-	public function TransformNews()
-	{   
-		$this->newsArray = $this->products->getNewProd();
-		foreach ($this->newsArray as $key => $value) {
-			$this->newsArray[$key]['img'] = $this->config->dirProdImg.$this->newsArray[$key]['img'];
-		}
-		return $this->newsArray;
-	}
-
+	
 	public function getMetategs()
 	{
 		include_once 'tmpl/metategs.tpl';
