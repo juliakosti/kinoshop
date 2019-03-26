@@ -1491,7 +1491,7 @@ footer:hover span:nth-of-type(3){
 	}
 	.start{
 		position:fixed;
-		top:20px;
+		top:calc(50% - 40px);/*Изменил по просьбе Босса*/
 		left:-5px;
 		cursor:pointer;
 		background:rgba(81, 189, 240, .4);
