@@ -24,7 +24,7 @@ class Config {
 	//public $dir_text = "lib/text/";
 	//public $dir_tmpl = "tmpl/";
 	//public $dir_tmpl_admin = "admin/tmpl/";
-	//public $dir_img_products = "images/products/";
+	public $dirProdImg = 'img/products/';
 	
 	//public $max_name = 255;
 	//public $max_title = 255;
