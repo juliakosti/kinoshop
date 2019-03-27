@@ -39,6 +39,7 @@ $page = new Page;
 	<!--Основной контент -->
 	<div class="content ">
 		<?
+		print_r($page->secArray);
 		$page->getContent();?>
 		<!--content.tpl -->
 				

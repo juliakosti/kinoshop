@@ -20,7 +20,7 @@ class Page
 		$this->sections = new Sections;
 		$this->url = new URL;
 
-		$this->secArray = $this->sections->getAllSections();
+		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();
 		
 
