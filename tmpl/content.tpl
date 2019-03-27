@@ -3,12 +3,12 @@
 		<div class="sorting">
 			<p>Сортировать по: 
 				<span>цене (
-					<a href="#">возр.</a> | 
-					<a href="#">убыв.</a> )
+					<a href="<?=$this->url->sortPriceUp()?>">возр.</a> | 
+					<a href="<?=$this->url->sortPriceDown()?>">убыв.</a> )
 				</span>
 				<span> названию (
-					<a href="#">возр.</a> | 
-					<a href="#">убыв.</a> )
+					<a href="<?=$this->url->sortTitleUp();?>">возр.</a> | 
+					<a href="<?=$this->url->sortTitleDown();?>">убыв.</a> )
 				</span>
 			</p>
 		

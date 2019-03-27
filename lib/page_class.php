@@ -10,7 +10,7 @@ class Page
 	private $config;
 	private $products;
 	private $sections;
-	private $url;
+	public $url;
 	
 
 	public function __construct()

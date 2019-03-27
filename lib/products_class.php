@@ -15,7 +15,15 @@ class Products extends BaseReq
 	
 	public function news()
 	{
-		return $this->transformProd($this->getNewProd());
+		if (!empty($_GET['sort'])) 
+		{
+			$param = $_GET['sort'];
+		} else $param = 'title';
+		if ($_GET['up'] === '0') {
+			$order = SORT_DESC;
+		} else $order = SORT_ASC;
+
+		return $this->transformProd($this->getNewProd($param, $order));
 	}
 
 	private function transformProd($arr)
@@ -32,7 +40,7 @@ class Products extends BaseReq
 	}
 
     
-    private function getNewProd($param='price', $order=SORT_ASC) 
+    private function getNewProd($param, $order) 
 	{   
 		$newProd = $this->getNews('id, title, img, price', $this->tablename);
 		foreach ($newProd as $key => $row) 

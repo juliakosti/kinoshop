@@ -39,7 +39,6 @@ $page = new Page;
 	<!--Основной контент -->
 	<div class="content ">
 		<?
-		
 		$page->getContent();?>
 		<!--content.tpl -->
 				
