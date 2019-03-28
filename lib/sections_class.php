@@ -26,7 +26,7 @@ class Sections extends BaseReq
 	{
 		foreach ($arr as $key => $value) 
 		{
-			$arr[$key]['link'] = $this->url->section($section[$key]['id']);
+			$arr[$key]['link'] = $this->url->section($arr[$key]['id']);
 		}
 		return $arr;
 		
