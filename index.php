@@ -13,6 +13,8 @@ $page = new Page;
 <head>
 	<?$page->getMetategs();?>
 	<!--metatags.tpl-->
+	<?$page->getIncludes();?>
+	<!--includes.tpl-->
 </head>
 <body>
 <!--Главная обёртка -->
@@ -39,7 +41,6 @@ $page = new Page;
 	<!--Основной контент -->
 	<div class="content ">
 		<?
-		print_r($page->secArray);
 		$page->getContent();?>
 		<!--content.tpl -->
 				

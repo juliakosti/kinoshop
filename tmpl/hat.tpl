@@ -5,7 +5,7 @@
 		<span class="k5"></span>
 		
 		<div class="logo">
-			<a href="index.html">Site.ru</a>
+			<a href="/">kinoshop.ru</a>
 			<a href="tel:+78001234567">8-800-123-45-67</a>
 			<p>Время работы: с 09:00 до 21:00</p>
 			<p>без перерыва и выходных</p>

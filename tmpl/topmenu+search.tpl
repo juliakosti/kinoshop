@@ -9,8 +9,8 @@
 		<!--/Скрытая кнопка бутера -->
 		<div class="top">
 			<nav>
-				<a class="active" href="index.html">Главная</a><img src="img/line.png" alt="#">
-				<a href="defrayal.html">Оплата и доставка</a><img src="img/line.png" alt="#">
+				<a class="active" href="/">Главная</a><img src="http://kinoshop/img/line.png" alt="#">
+				<a href="defrayal.html">Оплата и доставка</a><img src="http://kinoshop/img/line.png" alt="#">
 				<a href="contacts.html">Контакты</a>
 			</nav>
 		</div>

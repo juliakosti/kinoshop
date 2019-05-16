@@ -31,6 +31,10 @@ class Page
 	{
 		include_once 'tmpl/metategs.tpl';
 	}
+	public function getIncludes()
+	{
+		include_once 'tmpl/includes.tpl';
+	}
 	public function getHat()
 	{
 		include_once 'tmpl/hat.tpl';

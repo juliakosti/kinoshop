@@ -42,7 +42,9 @@ class Products extends BaseReq
     
     private function getNewProd($param, $order) 
 	{   
-		$newProd = $this->getNews('id, title, img, price', $this->tablename);
+		
+		$section_id = $_GET['section_id'];
+		$newProd = $this->getNews('id, title, img, price', $this->tablename, $section_id);
 		foreach ($newProd as $key => $row) 
 		{
 			$array_price[$key] = $row[$param];
