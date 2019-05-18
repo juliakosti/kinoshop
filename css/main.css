@@ -1,5 +1,5 @@
-﻿@import url("http://kinoshop/fonts.css");
-@import url("http://kinoshop/reset.css");
+﻿@import url("http://kinoshop/css/fonts.css");
+@import url("http://kinoshop/css/reset.css");
 
 /* Для Chrome */
 input[type=number]::-webkit-inner-spin-button,

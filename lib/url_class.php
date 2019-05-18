@@ -98,6 +98,11 @@ class Url
 	
 	public function product($id) {
 		return $this->returnURL("catalog/product?id=$id");
+
+	}
+
+	public function addCart($id) {
+		return $this->returnURL("functions.php?func=add_cart&id=$id");
 	}
 	//конец делаем адреса
 

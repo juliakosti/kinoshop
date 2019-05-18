@@ -1,17 +1,17 @@
 
 @font-face {
     font-family: "SUIS";
-    src: url("../fonts/Segoe UI Semibold.woff") format("woff"), 
-	url("../fonts/Segoe UI Semibold.ttf") format("truetype");
+    src: url("http://kinoshop/fonts/Segoe UI Semibold.woff") format("woff"), 
+	url("http://kinoshop/fonts/Segoe UI Semibold.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "CM";
-    src: url("../fonts/calligraph-medium.woff") format("woff"), 
-	url("../fonts/calligraph-medium.ttf") format("truetype");
+    src: url("http://kinoshop/fonts/calligraph-medium.woff") format("woff"), 
+	url("http://kinoshop/fonts/calligraph-medium.ttf") format("truetype");
 }
 @font-face {
     font-family: "SUIR";
-    src: url("../fonts/Segoe UI Regular.woff") format("woff"), 
-	url("../fonts/Segoe UI Regular.ttf") format("truetype");
+    src: url("http://kinoshop/fonts/Segoe UI Regular.woff") format("woff"), 
+	url("http://kinoshop/fonts/Segoe UI Regular.ttf") format("truetype");
 }

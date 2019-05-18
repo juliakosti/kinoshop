@@ -5,11 +5,13 @@ class Products extends BaseReq
 { 
     public $newProd;
     private $config;
+    private $url;
 
 	function __construct()	
 	{
 		parent::__construct("sdvd_products");
-		$this->config = new Config;
+		$this->config = new Config();
+		$this->url = new Url();
 		
 	}
 	
@@ -26,10 +28,11 @@ class Products extends BaseReq
 		return $this->transformProd($this->getNewProd($param, $order));
 	}
 
-	private function transformProd($arr)
+	private function transformProd($arr)//Трансформируем исходный массив
 	{   
 		foreach ($arr as $key => $value) {
 			$arr[$key]['img'] = $this->config->dirProdImg.$arr[$key]['img'];
+			$arr[$key]['link_cart'] = $this->url->addCart($arr[$key]['id']);
 		}
 		return $arr;
 	}
@@ -55,6 +58,12 @@ class Products extends BaseReq
 		
 	}
 
+	public function existsID($id) 
+	{
+		return $this->getOnebySmth('id', $this->tablename, 'id', $id);
+		 
+
+	}
 	
 	public function getProdBySection($section_id, $order='title', $desc=false)
 	{
