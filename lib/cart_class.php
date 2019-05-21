@@ -5,6 +5,7 @@ require_once 'template_class.php';
 class Cart 
 { 
     public $cartArr;
+
     private $config;
     private $url;
     private $template;
@@ -21,17 +22,17 @@ class Cart
 
 	public function setInfoCart() {
 		if ($_SESSION["cart"]) {
-			$cartArr = explode(",", $_SESSION["cart"]);
+			$cartIds = explode(",", $_SESSION["cart"]);
 			echo '<pre>';
-			print_r($cartArr);
+			print_r($cartIds);
 			echo '</pre>';
-			//$summa = $this->products->getPriceOnIDs($ids);
-			$cart_count = count($cartArr);
+			$summa = $this->products->getPriceOnIDs($cartIds);
+			$cart_count = count($cartIds);
 			echo '</br>';
 			echo $cart_count;
 			echo '</br>';
-			//echo $summa;
-			$this->products->getProductsByID($cartArr);
+			echo $summa;
+			$this->products->getProductsByID($cartIds);
 			/*$this->template->set("cart_summa", $summa);
 			$words = array("товар", "товара", "товаров");
 			$this->template->set("cart_word", $this->getWord(count($cartArr), $words));

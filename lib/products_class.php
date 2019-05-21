@@ -75,7 +75,7 @@ class Products extends BaseReq
 	}
 
 	public function getPriceOnIDs($ids) {
-		$products = $this->getProductByID($ids);
+		$products = $this->getProductsByID($ids);
 		$result = array();
 		for ($i = 0; $i < count($products); $i++) {
 			$result[$products[$i]["id"]] = $products[$i]["price"];
@@ -95,8 +95,6 @@ class Products extends BaseReq
 			$products[$i] = $this->getOnebySmth('title, price', $this->tablename, 'id', $id);
 		}
 		
-		
-
 		echo '<pre>';
 		print_r($products);
 		echo '</pre>';
