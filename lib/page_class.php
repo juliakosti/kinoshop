@@ -3,6 +3,7 @@ require_once 'lib/config_class.php';
 require_once 'lib/products_class.php';
 require_once 'lib/sections_class.php';
 require_once 'lib/url_class.php';
+require_once 'lib/cart_class.php';
 
 
 class Page 
@@ -15,10 +16,12 @@ class Page
 
 	public function __construct()
 	{
-		$this->config = new Config;
-		$this->products = new Products;
-		$this->sections = new Sections;
-		$this->url = new URL;
+		$this->config = new Config();
+		$this->products = new Products();
+		$this->sections = new Sections();
+		$this->url = new Url();
+		$this->cart = new Cart();
+
 
 		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();

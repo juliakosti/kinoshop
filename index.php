@@ -29,7 +29,9 @@ $page = new Page;
 
 	<!--Меню и поиск -->
 	<?$page->getTopmenu();?>
-	
+	<?$page->cart->setInfoCart();
+	echo $page->cart->cartArr;
+	?>
 	<!--/Меню и поиск -->
 
 	<!--Боковая панель -->

@@ -73,11 +73,38 @@ class Products extends BaseReq
 		print_r($sectionProd);
 		echo '</pre>';
 	}
+
+	public function getPriceOnIDs($ids) {
+		$products = $this->getProductByID($ids);
+		$result = array();
+		for ($i = 0; $i < count($products); $i++) {
+			$result[$products[$i]["id"]] = $products[$i]["price"];
+		}
+		$summa = 0;
+		for ($i = 0; $i < count($ids); $i++) {
+			$summa += $result[$ids[$i]];
+		}
+		return $summa;
+	}
 	
+	public function getProductsByID($ids)
+	{	
+		for ($i=0; $i < count($ids); $i++) 
+		{
+			$id = $ids[$i];
+			$products[$i] = $this->getOnebySmth('title, price', $this->tablename, 'id', $id);
+		}
+		
+		
+
+		echo '<pre>';
+		print_r($products);
+		echo '</pre>';
+	}
 	
-	public function getProductByID($id)
+	public function getOneProductByID($id)
 	{
-		return $this->getOnebySmth('title', $this->tablename, 'id', $id);
+		return $this->getOnebySmth('title, price', $this->tablename, 'id', $id);
 	}
 	
 	public function getProductsBySectionID($sec_id, $order ='title', $desc = false)

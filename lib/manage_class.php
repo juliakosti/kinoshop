@@ -19,7 +19,9 @@ class Manage {
 		if (!$this->products->existsID($id)) return false;
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
-		
+		print_r($_SESSION);
 	}
+
+	
 
 }

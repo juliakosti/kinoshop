@@ -3,7 +3,7 @@
 class Template
 {
 	private $dir_tmpl;
-	private $data[];
+	private $data;
 
 	public function __constract($dir_tmpl) 
 	{
