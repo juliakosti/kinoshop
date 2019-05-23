@@ -15,8 +15,8 @@
 			<h3>Корзина</h3>
 			<div class="wrapper">
 				<a href="#" class="order">Текущий заказ</a><br>
-				<p>В корзине <span class="quantity">2</span> товара</p>
-				<p>на сумму <span class="cost">700</span> руб.</p>
+				<p>В корзине <span class="quantity"><?=$this->cartInfo['cart_count'];?></span> <?=$this->cartInfo['cart_word'];?></p>
+				<p>на сумму <span class="cost"><?=$this->cartInfo['cart_summa'];?></span> руб.</p>
 			</div>
-			<a href="kart.html" class="btn1">Перейти в корзину</a>
+			<a href="<?=$this->url->cart();?>" class="btn1">Перейти в корзину</a>
 		</div>

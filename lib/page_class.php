@@ -4,6 +4,7 @@ require_once 'lib/products_class.php';
 require_once 'lib/sections_class.php';
 require_once 'lib/url_class.php';
 require_once 'lib/cart_class.php';
+//require_once 'lib/content_class.php';
 
 
 class Page 
@@ -11,8 +12,11 @@ class Page
 	private $config;
 	private $products;
 	private $sections;
+	//private $content;
 	public $url;
-	
+	public $cartInfo;
+	public $cartProd;
+
 
 	public function __construct()
 	{
@@ -21,12 +25,19 @@ class Page
 		$this->sections = new Sections();
 		$this->url = new Url();
 		$this->cart = new Cart();
+		//$this->content = new Content();
 
 
 		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();
-		
+		$this->cartInfo = $this->cart->setInfoCart();
+		$this->cartProd = $this->cart->getMyCart();
 
+	}
+
+	public function Try() 
+	{
+		$this->content->getContent();
 	}
 	
 	
@@ -52,7 +63,16 @@ class Page
 	}
 	public function getContent()
 	{
-		include_once 'tmpl/content.tpl';
+		//echo $_SERVER['REQUEST_URI'];
+		if	($_SERVER['REQUEST_URI'] == '/cart')
+		{
+			include_once 'tmpl/cart.tpl';
+		}
+		else 
+		{
+			include_once 'tmpl/content.tpl';
+		}
+		
 	}
 	public function getFooter()
 	{

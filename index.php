@@ -29,8 +29,8 @@ $page = new Page;
 
 	<!--Меню и поиск -->
 	<?$page->getTopmenu();?>
-	<?$page->cart->setInfoCart();
-	echo $page->cart->cartArr;
+	<?//$page->cart->setInfoCart();
+	//echo $page->cart_count;
 	?>
 	<!--/Меню и поиск -->
 
@@ -41,12 +41,13 @@ $page = new Page;
 		
 	<!--/Боковая панель -->
 	<!--Основной контент -->
-	<div class="content ">
+	
 		<?
+		
 		$page->getContent();?>
 		<!--content.tpl -->
 				
-	</div>
+	
 	<div class="clear"></div>
 	<!--/Основной контент -->
 	<!--Оплата -->

@@ -5,7 +5,6 @@ require_once 'template_class.php';
 class Cart 
 { 
     public $cartArr;
-
     private $config;
     private $url;
     private $template;
@@ -17,31 +16,27 @@ class Cart
 		$this->url = new Url();
 		$this->template = new Template();
 		$this->products = new Products();
-		
+		$this->cart_count = $cart_count;
 	}
 
-	public function setInfoCart() {
-		if ($_SESSION["cart"]) {
+
+	public function setInfoCart() 
+	{
+		if ($_SESSION['cart']) 
+		{
 			$cartIds = explode(",", $_SESSION["cart"]);
-			echo '<pre>';
-			print_r($cartIds);
-			echo '</pre>';
-			$summa = $this->products->getPriceOnIDs($cartIds);
 			$cart_count = count($cartIds);
-			echo '</br>';
-			echo $cart_count;
-			echo '</br>';
-			echo $summa;
-			$this->products->getProductsByID($cartIds);
-			/*$this->template->set("cart_summa", $summa);
+			$cart_summa = $this->products->getPriceOnIDs($cartIds);
 			$words = array("товар", "товара", "товаров");
-			$this->template->set("cart_word", $this->getWord(count($cartArr), $words));
+			$cart_word = $this->getWord(count($cartIds), $words);
 		}
 		else {
-			$this->template->set("cart_count", 0);
-			$this->template->set("cart_summa", 0);
-			$this->template->set("cart_word", "товаров");*/
+			$cart_count = 0;
+			$cart_summa = 0;
+			$cart_word = 'товаров';
 		}
+		$cartArr = ['cart_count' => $cart_count, 'cart_word' => $cart_word, 'cart_summa' => $cart_summa];
+		return $cartArr;
 	}
 
 	private function getWord($number, $words) {
@@ -51,5 +46,31 @@ class Cart
 		return $words[$word_key];
 	}
 
+
+
+	public function getMyCart()
+	{
+		if ($_SESSION['cart'])
+		{
+			$cartIds = explode(',', $_SESSION['cart']);
+			$cart = $this->products->getProductsByID($cartIds);
+		}	
+		for ($i=0; $i < count($cart); $i++) { 
+			$cart[$i]['count'] = 1;
+			$cart[$i]['summa'] = $cart[$i]['count'] * $cart[$i]['price'];
+			$cart[$i]['link_delete'] = $this->url->deleteCart($cart[$i]['id']);
+		}
+		return $cart;
+	}
+
+
+	private function getCountInArray($array) 
+	{
+		$count = 0;
+		for ($i=0; $i < count($array); $i++) { 
+			if ($array[$i]['id'] == $v) $count++;
+		}
+		return $count;
+	}
 
 }	

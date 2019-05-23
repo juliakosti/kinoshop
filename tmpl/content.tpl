@@ -1,3 +1,4 @@
+<div class="content ">
 <span></span>
 		<h2>Новинки</h2>
 		<div class="sorting">
@@ -33,3 +34,4 @@
 
 			?>
 		</div>
+</div>		

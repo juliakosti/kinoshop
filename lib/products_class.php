@@ -75,14 +75,10 @@ class Products extends BaseReq
 	}
 
 	public function getPriceOnIDs($ids) {
-		$products = $this->getProductsByID($ids);
-		$result = array();
-		for ($i = 0; $i < count($products); $i++) {
-			$result[$products[$i]["id"]] = $products[$i]["price"];
-		}
+		$prod = $this->getProductsByID($ids);
 		$summa = 0;
-		for ($i = 0; $i < count($ids); $i++) {
-			$summa += $result[$ids[$i]];
+		for ($i=0; $i <count($prod) ; $i++) { 
+			$summa += $prod[$i]['price'];
 		}
 		return $summa;
 	}
@@ -92,12 +88,19 @@ class Products extends BaseReq
 		for ($i=0; $i < count($ids); $i++) 
 		{
 			$id = $ids[$i];
-			$products[$i] = $this->getOnebySmth('title, price', $this->tablename, 'id', $id);
+			$products[$i] = $this->getOnebySmth('id, img, title, price', $this->tablename, 'id', $id);
 		}
 		
-		echo '<pre>';
-		print_r($products);
-		echo '</pre>';
+		for ($i=0; $i < count($products); $i++) 
+		{ 
+			$prod[$i]['id'] = $products[$i][1]['id'];
+			$prod[$i]['title'] = $products[$i][1]['title'];
+			$prod[$i]['price'] = $products[$i][1]['price'];
+			$prod[$i]['img'] = $this->config->dirProdImg.$products[$i][1]['img'];
+		}
+		
+		return $prod;
+
 	}
 	
 	public function getOneProductByID($id)

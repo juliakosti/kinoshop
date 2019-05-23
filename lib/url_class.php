@@ -104,6 +104,12 @@ class Url
 	public function addCart($id) {
 		return $this->returnURL("functions.php?func=add_cart&id=$id");
 	}
+
+	public function deleteCart($id) {
+		return $this->returnURL("functions.php?func=delete_cart&id=$id");
+	}
+
+
 	//конец делаем адреса
 
 
