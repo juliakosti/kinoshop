@@ -17,8 +17,15 @@
 						<tbody>
 							
 							<?
-							for ($i=0; $i < count($this->cartProd); $i++) 
-							{ ?>
+							/*echo '<pre>';
+							print_r($this->cartProd);
+							echo '</pre>';*/
+							for ($i=0; $i <= count($this->cartProd); $i++) 
+							{ 
+								if (isset($this->cartProd[$i])) {
+									
+								
+								?>
 									
 								<tr>
 									<td data-label="Товар">
@@ -40,7 +47,7 @@
 										</div>
 									</td>
 								</tr>
-							<?}?>
+							<?}}?>
 							
 						</tbody>
 					</table>

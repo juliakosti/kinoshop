@@ -54,23 +54,34 @@ class Cart
 		{
 			$cartIds = explode(',', $_SESSION['cart']);
 			$cart = $this->products->getProductsByID($cartIds);
-		}	
-		for ($i=0; $i < count($cart); $i++) { 
-			$cart[$i]['count'] = 1;
-			$cart[$i]['summa'] = $cart[$i]['count'] * $cart[$i]['price'];
-			$cart[$i]['link_delete'] = $this->url->deleteCart($cart[$i]['id']);
+			
+			foreach ($cart as $key => $value) 
+			{ 
+				$cart[$key]['count'] = $this->getCountInArray($cart[$key]['id'], $cart);
+				$cart[$key]['summa'] = $cart[$key]['count'] * $cart[$key]['price'];
+				$cart[$key]['link_delete'] = $this->url->deleteCart($cart[$key]['id']);
+			}
+			$cart = array_map("unserialize", array_unique( array_map("serialize", $cart)));
+			
+			return $cart;
 		}
-		return $cart;
+		
 	}
 
 
-	private function getCountInArray($array) 
-	{
-		$count = 0;
-		for ($i=0; $i < count($array); $i++) { 
-			if ($array[$i]['id'] == $v) $count++;
+	public function getCountInArray($id, $arr) 
+	{   
+		foreach ($arr as $key => $value) 
+		{
+			foreach ($value as $k => $v) 
+			{
+				$array[$key] = $value['id'];
+			}
 		}
-		return $count;
+			
+			$counts = array_count_values($array); 
+			
+			return $counts[$id];
 	}
 
 }	

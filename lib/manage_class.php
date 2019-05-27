@@ -19,9 +19,25 @@ class Manage {
 		if (!$this->products->existsID($id)) return false;
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
-		print_r($_SESSION);
+		
 	}
 
+	public function deleteCart()
+	{	
+		$id = $_REQUEST['id'];//Попробовать найти другой вариант
+		if (!$this->products->existsID($id)) return false;
+		$ids = explode(',', $_SESSION['cart']);
+		echo '<pre>';
+		print_r($ids);
+		echo '</pre>';
+		echo '<hr>';
+		echo $id;
+		/*$id = $this->data["id"];
+		
+		$_SESSION["cart"] = "";
+		for ($i = 0; $i < count($ids); $i++) {
+			if ($ids[$i] != $id) $this->addCart($ids[$i]);*/
+	}
 	
 
 }

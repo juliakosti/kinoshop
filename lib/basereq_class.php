@@ -45,7 +45,7 @@ abstract class BaseReq extends BaseConnect {
 			{
 				$query_inn = "SELECT $params from $tablename WHERE section_id = $section_id ORDER BY date DESC LIMIT 6";
 			} else
-				$query_inn = "SELECT $params from $tablename ORDER BY date DESC LIMIT 6";
+				$query_inn = "SELECT $params from $tablename ORDER BY date DESC LIMIT 12";
 
 		try 
 		{
