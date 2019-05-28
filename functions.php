@@ -14,6 +14,10 @@ elseif ($func == 'delete_cart')
 	{
 		$manage->deleteCart();
 	}
+elseif ($func == 'cart') 
+	{
+		$manage->changeCart();
+	}	
 	else exit;
 
 //$link = ($_SERVER['HTTP_REFERER'] !='')? $_SERVER['HTTP_REFERER']: $url->index();

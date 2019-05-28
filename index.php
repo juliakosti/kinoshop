@@ -43,7 +43,7 @@ $page = new Page;
 	<!--Основной контент -->
 	
 		<?
-		echo $_SESSION['cart'];
+		
 		$page->getContent();?>
 		<!--content.tpl -->
 				

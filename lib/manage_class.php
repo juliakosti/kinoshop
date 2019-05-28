@@ -1,16 +1,20 @@
 <?php
 require_once 'config_class.php';
 require_once 'products_class.php';
+require_once 'discount_class.php';
 
 class Manage {
 
 	private $config;
+	private $products;
+	private $discount;
 
 	public function __construct() 
 	{
 		//session_start();
 		$this->config = new Config();
 		$this->products = new Products();
+		$this->discount = new Discount();
 	}
 
 	public function addToCart()
@@ -19,7 +23,7 @@ class Manage {
 		if (!$this->products->existsID($id)) return false;
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
-		
+		echo '<script>setTimeout(\'location="/"\', 0)</script>';
 	}
 
 	public function deleteCart()
@@ -32,12 +36,51 @@ class Manage {
 		echo '</pre>';
 		echo '<hr>';
 		echo $id;
-		/*$id = $this->data["id"];
+		for ($i=0; $i <= count($ids); $i++) 
+		{ 
+			if ($ids[$i] == $id) 
+				{
+					unset($ids[$i]);
+				}
+		}
+		echo '<pre>';
+		print_r($ids);
+		echo '</pre>';
+		$_SESSION['cart'] = implode(',', $ids);
+		echo '<hr>';
+		echo $_SESSION['cart'];
+		echo '<script>setTimeout(\'location="/cart"\')</script>';
 		
-		$_SESSION["cart"] = "";
-		for ($i = 0; $i < count($ids); $i++) {
-			if ($ids[$i] != $id) $this->addCart($ids[$i]);*/
 	}
 	
+	public function changeCart() 
+	{
+		$_SESSION['cart'] = '';
+		
+		$arr = $_POST;
+		echo '<pre>';
+		print_r($arr);
+		echo '</pre>';
+		echo '<hr>';
+		
+		foreach ($arr as $key => $value) 
+		{
+			if (strpos($key, 'count_') !== false) 
+			{
+				$id = substr($key, strlen('count_'));
+				for ($i = 0; $i < $value; $i++) 
+				{
+					if ($_SESSION['cart']) 
+						{
+							$_SESSION['cart'] .=", $id";
+						}
+					else $_SESSION['cart'] = $id;
+				}
+			}
+			//$_SESSION['discount'] = $arr['discount'];
+			$this->discount->getValueOnCode();
+		}
+		//echo '<script>setTimeout(\'location="/cart"\', 0)</script>';
+	}
 
 }
