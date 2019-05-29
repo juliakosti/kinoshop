@@ -91,4 +91,6 @@ abstract class BaseReq extends BaseConnect {
 			echo 'Ошибка выполнения запроса: ' . $e->getMessage();
 		}
 	}
+
+	
 }

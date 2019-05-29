@@ -54,11 +54,18 @@
 					<p>Введите номер купона со скидкой <br>
 						(если есть)
 					</p>
-					<input type="text" name="discount" value="">
+					<input type="text" name="discount" value="<?=$_SESSION['code'];?>">
 					<input type="submit" class="btn2" value="Получить скидку">
 				</div>
 				<div class="total clearfix">
-					<p>Итого: <?=$this->cartInfo['cart_summa'];?> руб.</p>
+					<p>
+
+						Итого 
+						<?echo $this->disc;
+						if ($_SESSION['discount']) echo '(с учетом скидки ' . $_SESSION['discount']*100 . '%)';
+						
+						?>
+						: <?=$this->cartInfo['cart_summa']-($this->cartInfo['cart_summa']*$_SESSION['discount']);?> руб.</p>
 					<input type="submit" class="btn3" value="Пересчитать">
 					
 					<a class="btn4" href="order.html">Оформить заказ</a>

@@ -1,20 +1,25 @@
 <?php
 require_once 'config_class.php';
 require_once 'products_class.php';
-require_once 'discount_class.php';
+require_once 'discounts_class.php';
 
 class Manage {
 
 	private $config;
 	private $products;
-	private $discount;
+	private $discounts;
+
+	
+	
 
 	public function __construct() 
 	{
 		//session_start();
 		$this->config = new Config();
 		$this->products = new Products();
-		$this->discount = new Discount();
+		$this->discounts = new Discounts();
+
+		
 	}
 
 	public function addToCart()
@@ -52,17 +57,17 @@ class Manage {
 		echo '<script>setTimeout(\'location="/cart"\')</script>';
 		
 	}
+
+
 	
 	public function changeCart() 
 	{
 		$_SESSION['cart'] = '';
+		$_SESSION['code'] = '';
+		$_SESSION['discount'] = '';
 		
 		$arr = $_POST;
-		echo '<pre>';
-		print_r($arr);
-		echo '</pre>';
-		echo '<hr>';
-		
+			
 		foreach ($arr as $key => $value) 
 		{
 			if (strpos($key, 'count_') !== false) 
@@ -77,10 +82,15 @@ class Manage {
 					else $_SESSION['cart'] = $id;
 				}
 			}
-			//$_SESSION['discount'] = $arr['discount'];
-			$this->discount->getValueOnCode();
 		}
-		//echo '<script>setTimeout(\'location="/cart"\', 0)</script>';
+
+		$_SESSION['code'] = $arr ['discount'];
+		$_SESSION['discount'] = $this->discounts->existsValue($arr ['discount']);
+		echo '<script>setTimeout(\'location="/cart"\', 0)</script>';
+		
+		
 	}
+
+
 
 }

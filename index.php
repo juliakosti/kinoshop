@@ -43,7 +43,7 @@ $page = new Page;
 	<!--Основной контент -->
 	
 		<?
-		
+		$page->Try();
 		$page->getContent();?>
 		<!--content.tpl -->
 				
