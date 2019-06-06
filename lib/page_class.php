@@ -4,6 +4,7 @@ require_once 'lib/products_class.php';
 require_once 'lib/sections_class.php';
 require_once 'lib/url_class.php';
 require_once 'lib/cart_class.php';
+require_once 'lib/order_class.php';
 //временно
 
 
@@ -14,6 +15,7 @@ class Page
 	private $config;
 	private $products;
 	private $sections;
+	private $order;
 	
 	
 	public $url;
@@ -29,6 +31,7 @@ class Page
 		$this->sections = new Sections();
 		$this->url = new Url();
 		$this->cart = new Cart();
+		$this->order = new Order();
 		
 
 		//временно
@@ -45,7 +48,7 @@ class Page
 
 	public function Try() 
 	{
-		//$this->manage->disc;
+		$this->order->setIntoOrders();
 	}
 	
 	
@@ -72,7 +75,12 @@ class Page
 	public function getContent()
 	{
 		//echo $_SERVER['REQUEST_URI'];
-		if	($_SERVER['REQUEST_URI'] == '/cart')
+		if	($_SERVER['REQUEST_URI'] == '/order')
+		{
+			include_once 'tmpl/order.tpl';
+			
+		}
+		elseif	($_SERVER['REQUEST_URI'] == '/cart')
 		{
 			include_once 'tmpl/cart.tpl';
 		}
@@ -80,6 +88,7 @@ class Page
 		{
 			include_once 'tmpl/content.tpl';
 		}
+
 		
 	}
 	public function getFooter()

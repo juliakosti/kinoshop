@@ -17,7 +17,11 @@ elseif ($func == 'delete_cart')
 elseif ($func == 'cart') 
 	{
 		$manage->changeCart();
-	}	
+	}
+elseif ($func == 'order') 
+	{
+		$manage->saveOrder();
+	}		
 	else exit;
 
 //$link = ($_SERVER['HTTP_REFERER'] !='')? $_SERVER['HTTP_REFERER']: $url->index();

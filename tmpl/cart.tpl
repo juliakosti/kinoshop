@@ -68,7 +68,7 @@
 						: <?=$this->cartInfo['cart_summa']-($this->cartInfo['cart_summa']*$_SESSION['discount']);?> руб.</p>
 					<input type="submit" class="btn3" value="Пересчитать">
 					
-					<a class="btn4" href="order.html">Оформить заказ</a>
+					<a class="btn4" href="<?=$this->url->order();?>">Оформить заказ</a>
 				</div>
 				
 			</div>

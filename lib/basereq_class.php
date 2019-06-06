@@ -92,5 +92,19 @@ abstract class BaseReq extends BaseConnect {
 		}
 	}
 
-	
+	protected function setIntoTable($tablename, $params, $myparams)
+	{
+		$query = "INSERT INTO $tablename ($params) VALUES ($myparams)";
+		
+		try
+		{
+			$result = $this->db->prepare($query);
+			$result -> execute();
+			return 'Ваш заказ зарегистрирован';
+
+		} catch (PDOException $e) 
+		{
+			echo 'Ошибка выполнения запроса: ' . $e->getMessage();
+		}
+	}
 }

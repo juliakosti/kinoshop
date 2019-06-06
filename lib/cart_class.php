@@ -1,5 +1,5 @@
 <?php
-require_once 'manage_class.php';
+
 require_once 'template_class.php';
 
 class Cart 

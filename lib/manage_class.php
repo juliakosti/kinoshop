@@ -2,12 +2,14 @@
 require_once 'config_class.php';
 require_once 'products_class.php';
 require_once 'discounts_class.php';
+require_once 'order_class.php';
 
 class Manage {
 
 	private $config;
 	private $products;
 	private $discounts;
+	private $order;
 
 	
 	
@@ -18,7 +20,7 @@ class Manage {
 		$this->config = new Config();
 		$this->products = new Products();
 		$this->discounts = new Discounts();
-
+		$this->order = new Order();
 		
 	}
 
@@ -89,6 +91,11 @@ class Manage {
 		echo '<script>setTimeout(\'location="/cart"\', 0)</script>';
 		
 		
+	}
+
+	public function saveOrder()
+	{
+		return $this->order->dataOrder();
 	}
 
 
