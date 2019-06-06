@@ -980,6 +980,7 @@ table th {
 	width:210px;
 	height:27px;
 	margin:5px 2px;
+	padding-left: 10px;
 }
 .textarea{
 	margin: 10px 0 ;
@@ -1112,6 +1113,7 @@ table th {
    white-space   : nowrap;
   text-overflow : ellipsis;
   vertical-align: middle;
+  padding: 5px 0 0 5px;
 }
  
 .select:after {
@@ -1158,6 +1160,28 @@ table th {
   color: #4b4c59;
 }
 
+/*Вывод заказа*/
+.content_cart > p {
+	text-align:left;
+	font-family: SUIR;
+	font-size: 18px;
+	font-weight:bold;
+	line-height: 3.5;
+	padding-left: 20px;
+}
+.content_cart ol li{
+	padding:0px 0 0px 30px;
+	font-family: SUIR;
+	font-size: 15px;
+	line-height:1.5;
+	text-align:left;
+	font-weight:normal;
+	font-style:italic;
+	transition:.3s;
+}
+.content_cart ol li:hover{
+	background:#e8ffd6;
+}
 
 /*Карточка товара*/
 .content_product p{

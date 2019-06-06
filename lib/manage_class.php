@@ -94,7 +94,11 @@ class Manage {
 		
 	public function saveOrder()
 	{
-		return $this->order->setIntoOrders();
+		
+		$this->order->setIntoOrders();
+		session_unset();
+		echo 'Ваш заказ успешно отправлен. Менеджер свяжется с Вами в ближайшее время';
+		echo '<script>setTimeout(\'location="/"\', 5000)</script>';
 	}	
 		
 	

@@ -25,11 +25,9 @@ class Order extends BaseReq
 
 	public function setIntoOrders()
 		{
-			/*$params = implode(array_keys($this->dataOrder()), ', ');  
-			$myparams = implode(array_values($this->dataOrder()) , ', ');
-			$query = "INSERT INTO $this->tablename ($params) VALUES ($myparams)";
-			echo $query;*/
-			$this->setIntoTable();
+			$params = implode(array_keys($this->dataOrder()), ', ');  
+			$myparams = "'". implode(array_values($this->dataOrder()) , "', '") . "'";
+			$this->setIntoTable($this->tablename, $params, "$myparams");
 		}
 
 	public function dataOrder()
@@ -73,6 +71,7 @@ class Order extends BaseReq
 			'date_order' =>date("d-m-Y H:i:s"),
 
 		];
+
 
 		return $arr;
 

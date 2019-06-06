@@ -36,7 +36,7 @@ class Cart
 			$cart_word = 'товаров';
 		}
 		$cartArr = ['cart_count' => $cart_count, 'cart_word' => $cart_word, 'cart_summa' => $cart_summa];
-		$_SESSION['cart_summa'] = $cartArr['cart_summa'];
+		$_SESSION['cart_summa'] = $cart_summa;
 		return $cartArr;
 	}
 
