@@ -65,7 +65,7 @@
 						if ($_SESSION['discount']) echo '(с учетом скидки ' . $_SESSION['discount']*100 . '%)';
 						
 						?>
-						: <?=$this->cartInfo['cart_summa']-($this->cartInfo['cart_summa']*$_SESSION['discount']);?> руб.</p>
+						: <?=$_SESSION['order_summa']);?> руб.</p>
 					<input type="submit" class="btn3" value="Пересчитать">
 					
 					<a class="btn4" href="<?=$this->url->order();?>">Оформить заказ</a>

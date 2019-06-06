@@ -10,7 +10,7 @@
       <li><?=$this->cartProd[$i]['title']?>:  <?=$this->cartProd[$i]['count']?> шт. по цене <?=$this->cartProd[$i]['price']?> руб. - на сумму <?=$this->cartProd[$i]['summa']?> руб.</li>
       <?}}?>
     </ol>
-    <p>Общая сумма заказа составила: <?=$this->cartInfo['cart_summa']-($this->cartInfo['cart_summa']*$_SESSION['discount']);?> руб.</p>
+    <p>Общая сумма заказа составила: <?=$_SESSION['order_summa'];?> руб.</p>
 		<!--Форма -->
 		<form class="form_1" action="<?=$this->url->action()?>" name='orderform' method="post">
 			<input type="hidden" name="func" value="order" />

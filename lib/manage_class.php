@@ -88,15 +88,18 @@ class Manage {
 
 		$_SESSION['code'] = $arr ['discount'];
 		$_SESSION['discount'] = $this->discounts->existsValue($arr ['discount']);
+		$_SESSION['order_summa'] = $_SESSION['cart_summa'] - ($_SESSION['cart_summa']*$_SESSION['discount']);
 		echo '<script>setTimeout(\'location="/cart"\', 0)</script>';
-		
-		
 	}
-
+		
 	public function saveOrder()
 	{
-		return $this->order->dataOrder();
-	}
+		return $this->order->setIntoOrders();
+	}	
+		
+	
+
+	
 
 
 

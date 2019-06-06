@@ -25,14 +25,11 @@ class Order extends BaseReq
 
 	public function setIntoOrders()
 		{
-			$params = implode(array_keys($this->dataOrder()), ', ');  
-			echo ($params);
+			/*$params = implode(array_keys($this->dataOrder()), ', ');  
 			$myparams = implode(array_values($this->dataOrder()) , ', ');
-			echo '</br>';
-			echo ($myparams);
-			echo '</br>';
 			$query = "INSERT INTO $this->tablename ($params) VALUES ($myparams)";
-			echo $query;
+			echo $query;*/
+			$this->setIntoTable();
 		}
 
 	public function dataOrder()
@@ -62,14 +59,19 @@ class Order extends BaseReq
 			$_SESSION['notice'] = $this->check->cleanFormData($_POST['notice']);
 		}
 
+
 		$arr = [
 		
 			'name' => $_SESSION['fio'],
 			'phone' => $_SESSION['phone'],
 			'email' => $_SESSION['email'],
 			'delivery' => $_SESSION['delivery'],
-			'address' => $_SESSION['fio'],
+			'address' => $_SESSION['address'],
 			'notice' => $_SESSION['notice'],
+			'product_ids' =>$_SESSION['cart'],
+			'price' =>$_SESSION['order_summa'],
+			'date_order' =>date("d-m-Y H:i:s"),
+
 		];
 
 		return $arr;
