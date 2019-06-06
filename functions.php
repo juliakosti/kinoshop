@@ -21,7 +21,8 @@ elseif ($func == 'cart')
 elseif ($func == 'order') 
 	{
 		$manage->saveOrder();
-	}		
+	}
+	
 	else exit;
 
 //$link = ($_SERVER['HTTP_REFERER'] !='')? $_SERVER['HTTP_REFERER']: $url->index();

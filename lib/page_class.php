@@ -84,6 +84,14 @@ class Page
 		{
 			include_once 'tmpl/cart.tpl';
 		}
+		elseif	($_SERVER['REQUEST_URI'] == '/contacts')
+		{
+			include_once 'tmpl/contacts.tpl';
+		}
+		elseif	($_SERVER['REQUEST_URI'] == '/delivery')
+		{
+			include_once 'tmpl/delivery.tpl';
+		}
 		else 
 		{
 			include_once 'tmpl/content.tpl';

@@ -10,8 +10,8 @@
 		<div class="top">
 			<nav>
 				<a class="active" href="/">Главная</a><img src="http://kinoshop/img/line.png" alt="#">
-				<a href="defrayal.html">Оплата и доставка</a><img src="http://kinoshop/img/line.png" alt="#">
-				<a href="contacts.html">Контакты</a>
+				<a href="<?=$this->url->delivery();?>">Оплата и доставка</a><img src="http://kinoshop/img/line.png" alt="#">
+				<a href="<?=$this->url->contacts();?>">Контакты</a>
 			</nav>
 		</div>
 		<div class="search">
