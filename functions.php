@@ -22,6 +22,10 @@ elseif ($func == 'order')
 	{
 		$manage->saveOrder();
 	}
+elseif ($func == 'product') 
+	{
+		$manage->getProduct();
+	}	
 	
 	else exit;
 

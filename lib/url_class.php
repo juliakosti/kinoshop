@@ -93,11 +93,11 @@ class Url
 	}
 
 	public function section($id) {
-		return $this->returnURL("catalog/section?section_id=$id");
+		return $this->returnURL("section?section_id=$id");
 	}
 	
 	public function product($id) {
-		return $this->returnURL("catalog/product?id=$id");
+		return $this->returnURL("product?id=$id");
 
 	}
 

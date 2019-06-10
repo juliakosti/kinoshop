@@ -32,6 +32,7 @@ class Products extends BaseReq
 	{   
 		foreach ($arr as $key => $value) {
 			$arr[$key]['img'] = $this->config->dirProdImg.$arr[$key]['img'];
+			$arr[$key]['link'] = $this->url->product($arr[$key]['id']);
 			$arr[$key]['link_cart'] = $this->url->addCart($arr[$key]['id']);
 		}
 		return $arr;
@@ -64,6 +65,8 @@ class Products extends BaseReq
 		 
 
 	}
+
+	
 	 
 	
 

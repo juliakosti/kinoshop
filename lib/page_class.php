@@ -18,10 +18,11 @@ class Page
 	private $order;
 	
 	
+	
 	public $url;
 	public $cartInfo;
 	public $cartProd;
-	
+	public $prodInfo;
 
 
 	public function __construct()
@@ -32,12 +33,13 @@ class Page
 		$this->url = new Url();
 		$this->cart = new Cart();
 		$this->order = new Order();
+
 		
 
 		//временно
 		
 		
-
+		$this->prodInfo = $this->products->getProductsByID($id);
 		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();
 		$this->cartInfo = $this->cart->setInfoCart();
@@ -74,24 +76,30 @@ class Page
 	}
 	public function getContent()
 	{
-		//echo $_SERVER['REQUEST_URI'];
-		if	($_SERVER['REQUEST_URI'] == '/order')
+		echo $_SERVER['REDIRECT_URL'];
+
+		if	($_SERVER['REDIRECT_URL'] == '/order')
 		{
 			include_once 'tmpl/order.tpl';
 			
 		}
-		elseif	($_SERVER['REQUEST_URI'] == '/cart')
+		elseif	($_SERVER['REDIRECT_URL'] == '/cart')
 		{
 			include_once 'tmpl/cart.tpl';
 		}
-		elseif	($_SERVER['REQUEST_URI'] == '/contacts')
+		elseif	($_SERVER['REDIRECT_URL'] == '/contacts')
 		{
 			include_once 'tmpl/contacts.tpl';
 		}
-		elseif	($_SERVER['REQUEST_URI'] == '/delivery')
+		elseif	($_SERVER['REDIRECT_URL'] == '/delivery')
 		{
 			include_once 'tmpl/delivery.tpl';
 		}
+		elseif	($_SERVER['REDIRECT_URL'] == '/product')
+		{
+			include_once 'tmpl/product.tpl';
+		}
+		
 		else 
 		{
 			include_once 'tmpl/content.tpl';
