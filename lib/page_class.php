@@ -38,8 +38,8 @@ class Page
 
 		//временно
 		
+		//
 		
-		$this->prodInfo = $this->products->getProductsByID($id);
 		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();
 		$this->cartInfo = $this->cart->setInfoCart();
@@ -50,7 +50,7 @@ class Page
 
 	public function Try() 
 	{
-		$this->order->setIntoOrders();
+		//print_r($this->prodInfo);
 	}
 	
 	
@@ -96,7 +96,8 @@ class Page
 			include_once 'tmpl/delivery.tpl';
 		}
 		elseif	($_SERVER['REDIRECT_URL'] == '/product')
-		{
+		{   
+			$this->prodInfo = $this->products->getOneProductByID($id);
 			include_once 'tmpl/product.tpl';
 		}
 		

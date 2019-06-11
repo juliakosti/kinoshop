@@ -43,7 +43,7 @@ $page = new Page;
 	<!--Основной контент -->
 	
 		<?
-		//$page->Try();
+		//print_r($page->prodInfo);
 		$page->getContent();?>
 		<!--content.tpl -->
 				

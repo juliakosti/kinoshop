@@ -110,8 +110,15 @@ class Products extends BaseReq
 	}
 	
 	public function getOneProductByID($id)
-	{
-		return $this->getOnebySmth('title, price', $this->tablename, 'id', $id);
+	{   
+		if (isset ($_GET['id'])) 
+		{
+			$id = $_GET['id'];
+		}
+		$arr = $this->getOnebySmth('id, title, price, img, price, year, country, director, play, cast, description', $this->tablename, 'id', $id);
+		$arr = $this->transformProd($arr);
+		
+		return $arr;
 	}
 	
 	public function getProductsBySectionID($sec_id, $order ='title', $desc = false)

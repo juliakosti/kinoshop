@@ -15,21 +15,20 @@
 		</div>
 		<!--/Крошки -->
 		<div class="film">
-			<img src="<?=$this->cartProd[$i]['img']?>" alt="#">
-			<p><strong>Название:</strong><span> Ледниковый период 4: Континентальный дрейф</span></p>
-			<p><strong>Год выхода:</strong> 2012</p>
-			<p><strong>Жанр:</strong> Мультфильм</p>
-			<p><strong>Страна производитель:</strong> США</p>
-			<p><strong>Режиссёр:</strong> Стив Мартино, Майк Трумейер</p>
-			<p><strong>Продолжительность: </strong> 1ч. 30мин.</p>
-			<p><strong>В ролях:</strong> Рэй Романо, Джон Легуизамо, Куин Латифа, Дэнис Лири, Джош Пек, 
-	Азиз Ансари,  Джой Бехар, Кристофер Кэмпбелл, Ален Шаба, Эстер Дин</p>
-			<p><span class="money"> 215 руб.</span>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
+			<img src="<?=$this->prodInfo['1']['img']?>" alt="<?=$this->prodInfo['1']['title']?>#">
+			<p><strong>Название: </strong><span><?=$this->prodInfo['1']['title']?></span></p>
+			<p><strong>Год выхода:</strong> <?=$this->prodInfo['1']['year']?></p>
+			<p><strong>Жанр:</strong> fack</p>
+			<p><strong>Страна производитель:</strong> <?=$this->prodInfo['1']['country']?></p>
+			<p><strong>Режиссёр:</strong> <?=$this->prodInfo['1']['director']?></p>
+			<p><strong>Продолжительность: </strong> <?=$this->prodInfo['1']['play']?></p>
+			<p><strong>В ролях:</strong> <?=$this->prodInfo['1']['cast']?></p>
+			<p><span class="money"> <?=$this->prodInfo['1']['price']?> руб.</span>
+				<a href="<?=$this->prodInfo['1']['link_cart']?>" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
 			</p>
 			
 			<p><strong>Описание:</strong></p>
-			<p>После приключений под землей прошло семь лет. Случился дрейф континентов. Главные герои мультфильма, отделённые от стада, вынуждены использовать айсберг в качестве плота. Они пересекают океан и попадают в неизвестные им ранее земли с экзотическими животными и пиратами, враждебно настроенными к ним. Скрэту удаётся получить свой жёлудь, но он перемещается в новые для него земли.</p>
+			<p><?=$this->prodInfo['1']['description']?></p>
 		</div>
 		<div class="accompanying">
 			<h2>С этим товаром также заказывают:</h2>
