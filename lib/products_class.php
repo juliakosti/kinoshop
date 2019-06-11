@@ -1,17 +1,20 @@
 <?php
 require_once 'basereq_class.php';
+require_once 'sections_class.php';
 
 class Products extends BaseReq 
 { 
     public $newProd;
     private $config;
     private $url;
+    private $sections;
 
 	function __construct()	
 	{
 		parent::__construct("sdvd_products");
 		$this->config = new Config();
 		$this->url = new Url();
+		$this->sections = new Sections();
 		
 	}
 	
@@ -115,9 +118,12 @@ class Products extends BaseReq
 		{
 			$id = $_GET['id'];
 		}
-		$arr = $this->getOnebySmth('id, title, price, img, price, year, country, director, play, cast, description', $this->tablename, 'id', $id);
+		$arr = $this->getOnebySmth('id, section_id, title, price, img, price, year, country, director, play, cast, description', $this->tablename, 'id', $id);
 		$arr = $this->transformProd($arr);
-		
+
+		$noname = ($this->sections->getSection($arr['1']['section_id']));
+		$arr['1']['section_title'] = $noname['1']['title'];
+
 		return $arr;
 	}
 	

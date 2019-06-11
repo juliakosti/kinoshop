@@ -60,6 +60,13 @@
 		
 	</div>
 	
+<!--номер телефона -->
+<script>
+jQuery(function($) {
+$.mask.definitions['~']='[+-]';
+$('#phone').mask('+9(999) 999-99-99');
+});
+</script>
 
 	<!--Для формы доставки -->
 <script>

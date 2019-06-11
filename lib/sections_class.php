@@ -32,4 +32,10 @@ class Sections extends BaseReq
 		
 	}
 
+	public function getSection($section_id)
+	{
+		$section = $this->getOnebySmth('id, title', $this->tablename, 'id', $section_id);
+		return $section;
+	}
+
 }

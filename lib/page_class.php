@@ -76,7 +76,7 @@ class Page
 	}
 	public function getContent()
 	{
-		echo $_SERVER['REDIRECT_URL'];
+		//echo $_SERVER['REDIRECT_URL'];
 
 		if	($_SERVER['REDIRECT_URL'] == '/order')
 		{

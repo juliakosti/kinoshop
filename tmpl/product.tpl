@@ -18,7 +18,7 @@
 			<img src="<?=$this->prodInfo['1']['img']?>" alt="<?=$this->prodInfo['1']['title']?>#">
 			<p><strong>Название: </strong><span><?=$this->prodInfo['1']['title']?></span></p>
 			<p><strong>Год выхода:</strong> <?=$this->prodInfo['1']['year']?></p>
-			<p><strong>Жанр:</strong> fack</p>
+			<p><strong>Жанр:</strong> <?=$this->prodInfo['1']['section_title']?></p>
 			<p><strong>Страна производитель:</strong> <?=$this->prodInfo['1']['country']?></p>
 			<p><strong>Режиссёр:</strong> <?=$this->prodInfo['1']['director']?></p>
 			<p><strong>Продолжительность: </strong> <?=$this->prodInfo['1']['play']?></p>

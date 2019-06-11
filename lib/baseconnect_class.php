@@ -18,7 +18,7 @@ class BaseConnect {
 			try 
 			{
 			    $this->db= new PDO("mysql:host=localhost;dbname={$this->dbname}", "{$this->dbuser}", "{$this->dbpass}");
-			    echo 'Удачное подключение!';
+			    //echo 'Удачное подключение!';
 			} catch (PDOException $e) {
 			    print "Произошла ошибка. Мы уже оповещены о ней и разбираемся в ситуации. Попробуйте зайти на сайт позже:  " . $e->getMessage() . "<br/>";
 			    die();
