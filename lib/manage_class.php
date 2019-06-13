@@ -30,8 +30,7 @@ class Manage {
 		if (!$this->products->existsID($id)) return false;
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
-		echo '<script>setTimeout(\'location="/"\', 0)</script>';
-		exit();
+		echo '<script>setTimeout(\'location="'.$_SERVER['HTTP_REFERER'].'"\', 0)</script>';
 	}
 
 	public function deleteCart()
