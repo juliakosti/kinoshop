@@ -1,6 +1,13 @@
 <!--Контент главный -->
 	<div class="content_cart">
 		<h1>Корзина</h1>
+		<?
+		if (!$_SESSION['cart']) 
+		{
+			echo "<p>Ваша корзина пуста. <a href='/'> Перейти в магазин</a></p>";
+		}
+		else {
+		?>
 		<!--Форма -->
 		<form name="cart" action="<?=$this->url->action()?>" method="post">
 			<div id="cart">
@@ -74,6 +81,7 @@
 			</div>
 		</form>
 		<!--/Форма -->
+		<?}?>
 	</div>
 	<div class="clear"></div>
 	<!--/Контент главный -->

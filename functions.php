@@ -31,4 +31,4 @@ elseif ($func == 'product')
 
 //$link = ($_SERVER['HTTP_REFERER'] !='')? $_SERVER['HTTP_REFERER']: $url->index();
 //header("Location: $url->index()");
-//exit();	
+exit();	

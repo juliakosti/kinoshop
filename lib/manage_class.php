@@ -31,6 +31,7 @@ class Manage {
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
 		echo '<script>setTimeout(\'location="/"\', 0)</script>';
+		exit();
 	}
 
 	public function deleteCart()
