@@ -25,7 +25,11 @@ elseif ($func == 'order')
 elseif ($func == 'product') 
 	{
 		$manage->getProduct();
-	}	
+	}
+/*elseif ($func == 'search') 
+	{
+		$manage->getBySearch();
+	}	*/	
 	
 	else exit;
 

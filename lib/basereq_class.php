@@ -3,7 +3,7 @@ require_once 'baseconnect_class.php';
 
 abstract class BaseReq extends BaseConnect {
 
-	public $sel;
+	
 	
 
 	public function __construct($tablename)
@@ -28,9 +28,9 @@ abstract class BaseReq extends BaseConnect {
 			$i = 1;
 			while($res = $result->fetch(PDO::FETCH_ASSOC))
 				{
-					$this->sel[$i] = $res; $i++;
+					$sel[$i] = $res; $i++;
 				}
-			return $this->sel;
+			return $sel;
 		
 
 		} catch (PDOException $e) 
@@ -43,7 +43,7 @@ abstract class BaseReq extends BaseConnect {
 	{	
 		if ($section_id) 
 			{
-				$query_inn = "SELECT $params from $tablename WHERE section_id = $section_id ORDER BY date DESC LIMIT 6";
+				$query_inn = "SELECT $params from $tablename WHERE section_id = $section_id ORDER BY date DESC LIMIT 12";
 			} else
 				$query_inn = "SELECT $params from $tablename ORDER BY date DESC LIMIT 12";
 
@@ -53,9 +53,9 @@ abstract class BaseReq extends BaseConnect {
 			$i = 1;
 			while($res = $result->fetch(PDO::FETCH_ASSOC))
 				{
-					$this->sel[$i] = $res; $i++;
+					$sel[$i] = $res; $i++;
 				}
-			return $this->sel;
+			return $sel;
 		
 
 		} catch (PDOException $e) 
@@ -82,14 +82,43 @@ abstract class BaseReq extends BaseConnect {
 			$i = 1;
 			while($res = $result->fetch(PDO::FETCH_ASSOC))
 				{
-				$this->sel[$i] = $res; $i++;
+				$sel[$i] = $res; $i++;
 				}
-			return $this->sel;
+			return $sel;
 
 		} catch (PDOException $e) 
 		{
 			echo 'Ошибка выполнения запроса: ' . $e->getMessage();
 		}
+	}
+
+	protected function getLike($params, $tablename, $paramsarr, $myparam)
+	{
+		$query = "SELECT $params FROM $tablename WHERE";
+		for ($i=0; $i < (count($paramsarr)); $i++) 
+		{ 
+			$query .=' '. $paramsarr[$i]." LIKE '%$myparam%'".' OR';
+		}
+		
+		$query = substr($query, 0, -2);
+		echo $query;
+		
+		try
+		{
+			$result = $this->db->prepare($query);
+			$result -> execute();
+			$i = 1;
+			while($res = $result->fetch(PDO::FETCH_ASSOC))
+				{
+				$sel[$i] = $res; $i++;
+				}
+			return $sel;
+
+		} catch (PDOException $e) 
+		{
+			echo 'Ошибка выполнения запроса: ' . $e->getMessage();
+		}	
+
 	}
 
 	protected function setIntoTable($tablename, $params, $myparams)

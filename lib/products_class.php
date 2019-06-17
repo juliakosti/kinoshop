@@ -69,7 +69,17 @@ class Products extends BaseReq
 
 	}
 
-	
+	public function getSearchProducts($data)
+	{	
+		$arr = $this->getLike('id, title', $this->tablename, ['title', 'year', 'country', 'cast'], $data);
+		$arr = $this->transformProd($arr);
+		if ($arr) 
+		{
+			return $arr;
+		}
+		else {echo 'По данному запросу ничего не найдено';
+		exit();}
+	}
 	 
 	
 

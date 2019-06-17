@@ -15,7 +15,9 @@
 			</nav>
 		</div>
 		<div class="search">
-			<input id="search" type="text" placeholder="Поиск" onblur="checkInput(this)">
-			<i class="fa fa-search" aria-hidden="true"></i>
+			<form action="<?=$this->url->search();?>" method="GET">
+				<input id="search" name="search" type="text" placeholder="Поиск" onblur="checkInput(this)">
+				<button><i class="fa fa-search"  aria-hidden="true"></i></button>
+			</form>
 		</div>
 	</div>

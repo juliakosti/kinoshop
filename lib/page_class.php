@@ -5,6 +5,8 @@ require_once 'lib/sections_class.php';
 require_once 'lib/url_class.php';
 require_once 'lib/cart_class.php';
 require_once 'lib/order_class.php';
+require_once 'lib/search_class.php';
+
 //временно
 
 
@@ -16,6 +18,7 @@ class Page
 	private $products;
 	private $sections;
 	private $order;
+
 	
 	
 	
@@ -23,6 +26,7 @@ class Page
 	public $cartInfo;
 	public $cartProd;
 	public $prodInfo;
+	public $searchResult;
 
 
 	public function __construct()
@@ -33,6 +37,7 @@ class Page
 		$this->url = new Url();
 		$this->cart = new Cart();
 		$this->order = new Order();
+		$this->search = new Search();
 
 		
 
@@ -44,13 +49,14 @@ class Page
 		$this->newsArray = $this->products->news();
 		$this->cartInfo = $this->cart->setInfoCart();
 		$this->cartProd = $this->cart->getMyCart();
+		$this->searchResult = $this->search->getDataFromSearch();
 
 
 	}
 
 	public function Try() 
 	{
-		//print_r($this->prodInfo);
+		print_r($this->searchResult);
 	}
 	
 	
@@ -76,7 +82,7 @@ class Page
 	}
 	public function getContent()
 	{
-		//echo $_SERVER['REDIRECT_URL'];
+		echo $_SERVER['REDIRECT_URL'];
 
 		if	($_SERVER['REDIRECT_URL'] == '/order')
 		{
@@ -94,6 +100,10 @@ class Page
 		elseif	($_SERVER['REDIRECT_URL'] == '/delivery')
 		{
 			include_once 'tmpl/delivery.tpl';
+		}
+		elseif	($_SERVER['REDIRECT_URL'] == '/search')
+		{
+			include_once 'tmpl/searchresult.tpl';
 		}
 		elseif	($_SERVER['REDIRECT_URL'] == '/product')
 		{   

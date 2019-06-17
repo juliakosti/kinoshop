@@ -100,7 +100,9 @@ class Manage {
 		echo 'Ваш заказ успешно отправлен. Менеджер свяжется с Вами в ближайшее время';
 		echo '<script>setTimeout(\'location="/"\', 5000)</script>';
 	}	
-		
+	
+
+	
 	
 
 	
