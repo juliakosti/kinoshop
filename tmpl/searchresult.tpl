@@ -8,10 +8,10 @@
 	?>
 
 	<ul>
-		<? for ($i=0; $i <=count($this->searchResult); $i++) 
+		<? for ($i=1; $i <=count($this->searchResult); $i++) 
 		{ ?>
 			<li>
-				<a href="<?=$this->searchResult[$i]['link']?>"><?=$this->searchResult[$i]['title']?></a>
+				<span><?=$i?>. </span> <a href="<?=$this->searchResult[$i]['link']?>"><?=$this->searchResult[$i]['title']?></a>
 			</li>
 			
 		<? }}?>
