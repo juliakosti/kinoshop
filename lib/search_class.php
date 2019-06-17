@@ -18,10 +18,13 @@ class Search
 
 
 	public function getDataFromSearch()
-	{
-		$search = $this->check->cleanFormData($_GET['search']);
-		echo $search;
-		return $this->products->getSearchProducts($search);
+	{   
+		if ($_GET['search'] !== '') 
+		{
+			$search = $this->check->cleanFormData($_GET['search']);
+			return $this->products->getSearchProducts($search);
+		}
+		
 	}
 
 }

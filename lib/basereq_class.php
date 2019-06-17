@@ -101,8 +101,7 @@ abstract class BaseReq extends BaseConnect {
 		}
 		
 		$query = substr($query, 0, -2);
-		echo $query;
-		
+				
 		try
 		{
 			$result = $this->db->prepare($query);
@@ -112,7 +111,12 @@ abstract class BaseReq extends BaseConnect {
 				{
 				$sel[$i] = $res; $i++;
 				}
-			return $sel;
+			if ($sel) 
+			{
+				return $sel;
+			}
+			else return false;
+			
 
 		} catch (PDOException $e) 
 		{

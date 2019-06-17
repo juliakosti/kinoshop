@@ -38,6 +38,7 @@ class Products extends BaseReq
 			$arr[$key]['link'] = $this->url->product($arr[$key]['id']);
 			$arr[$key]['link_cart'] = $this->url->addCart($arr[$key]['id']);
 		}
+
 		return $arr;
 	}
 
@@ -71,14 +72,14 @@ class Products extends BaseReq
 
 	public function getSearchProducts($data)
 	{	
-		$arr = $this->getLike('id, title', $this->tablename, ['title', 'year', 'country', 'cast'], $data);
-		$arr = $this->transformProd($arr);
+		$arr = $this->getLike('id, title', $this->tablename, ['title', 'year', 'country', 'cast', 'director'], $data);
+		
 		if ($arr) 
-		{
+		{   
+			$arr = $this->transformProd($arr);
 			return $arr;
 		}
-		else {echo 'По данному запросу ничего не найдено';
-		exit();}
+		else return false;
 	}
 	 
 	
@@ -87,10 +88,7 @@ class Products extends BaseReq
 	public function getProdBySection($section_id, $order='title', $desc=false)
 	{
 		$sectionProd = $this->getOnebySmth('*', $this->tablename, 'section_id', $section_id, $order, $desc);
-		//временно
-		echo '<pre>';	
-		print_r($sectionProd);
-		echo '</pre>';
+		
 	}
 
 	public function getPriceOnIDs($ids) {
