@@ -64,6 +64,10 @@ class Url
 		return $this->returnURL("");
 	}
 
+	public function notFound() {
+		return $this->returnURL("notfound");
+	}
+
 	public function cart() {
 		return $this->returnURL("cart");
 	}
@@ -143,6 +147,21 @@ class Url
 		return $this->sortOnField("price", 0);
 	}
 	//конец сортировки
+
+
+	//Проверка существования файла
+
+	public function fileExists($file) {
+		$arr = explode(PATH_SEPARATOR, get_include_path());
+		/*echo '<pre>';
+		print_r($arr);
+		echo '</pre>';
+		echo '<hr>';*/
+		foreach ($arr as $val) {
+			if (file_exists($val."/".$file)) return true;
+		}
+		return false;
+	}
 
 
 

@@ -2,7 +2,7 @@
 
 require_once 'mainview_class.php';
 
-class SectionView extends MainView
+class View extends MainView
 {
 
 	 public function __construct()

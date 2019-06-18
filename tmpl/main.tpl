@@ -31,7 +31,7 @@
 	<!--Основной контент -->
 	
 		<?
-		$this->Try();
+
 		$this->getContent();?>
 		<!--content.tpl -->
 				

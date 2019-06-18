@@ -3,7 +3,7 @@
 		<div class="bredcrams">
 			<ul>
 				<li>
-					<a href="index.html">Главная</a>
+					<a href="/">Главная</a>
 					<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 				</li>
 				<li>Контакты</li>
