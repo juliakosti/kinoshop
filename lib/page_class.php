@@ -82,7 +82,7 @@ class Page
 	}
 	public function getContent()
 	{
-		//echo $_SERVER['REDIRECT_URL'];
+		echo $_SERVER['REDIRECT_URL'];
 
 		if	($_SERVER['REDIRECT_URL'] == '/order')
 		{
@@ -111,10 +111,16 @@ class Page
 			include_once 'tmpl/product.tpl';
 		}
 		
-		else 
+		elseif (($_SERVER['REDIRECT_URL'] == '/section') || ($_SERVER['REDIRECT_URL'] == ''))
 		{
 			include_once 'tmpl/content.tpl';
 		}
+
+		else 
+		{
+			include_once 'tmpl/404.tpl';
+		}	
+
 
 		
 	}

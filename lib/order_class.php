@@ -72,7 +72,6 @@ class Order extends BaseReq
 
 		];
 
-
 		return $arr;
 
 	}

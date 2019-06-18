@@ -7,7 +7,7 @@ class Check
 
 	public function cleanFormData($value)
 	{
-		$value = trim(stripslashes(strip_tags(htmlspecialchars($value))));
+		$value = rtrim(trim(stripslashes(htmlspecialchars(strip_tags($value)))));
 	    
 	    return $value;
 	}
