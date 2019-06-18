@@ -51,12 +51,20 @@ class Page
 		$this->cartProd = $this->cart->getMyCart();
 		$this->searchResult = $this->search->getDataFromSearch();
 
+		$this->viewPage();
+
 
 	}
 
+	public function viewPage()
+	{
+		include_once 'tmpl/main.tpl';
+	}
+
+	
 	public function Try() 
 	{
-		//print_r($this->searchResult);
+		echo $this->url->getView();
 	}
 	
 	
@@ -82,7 +90,7 @@ class Page
 	}
 	public function getContent()
 	{
-		echo $_SERVER['REDIRECT_URL'];
+		//echo $_SERVER['REDIRECT_URL'];
 
 		if	($_SERVER['REDIRECT_URL'] == '/order')
 		{
