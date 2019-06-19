@@ -9,6 +9,14 @@ class SectionView extends MainView
     {   
     	parent::__construct();
     	include_once 'tmpl/content.tpl';
-        
+    	$this->smalltitle = '8';
+    }
+
+    public function getSmallTitle()
+    {
+    	$section_id = $_GET['section_id'];
+    	$arr = $this->sections->getSection($section_id);
+    	$title = $arr['1']['title'];
+    	return $title;
     }
 }

@@ -7,15 +7,15 @@
 					<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 				</li>
 				<li>
-					<a href="#">Мультфильмы</a> 
+					<a href="<?=$this->url->section($this->prodInfo['1']['section_id']);?>"><?=$this->prodInfo['1']['section_title']?></a> 
 					<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 				</li>
-				<li>Ледниковый период 4: Континентальный дрейф</li>
+				<li><?=$this->prodInfo['1']['title']?></li>
 			</ul>
 		</div>
 		<!--/Крошки -->
 		<div class="film">
-			<img src="<?=$this->prodInfo['1']['img']?>" alt="<?=$this->prodInfo['1']['title']?>#">
+			<img src="<?=$this->prodInfo['1']['img']?>" alt="<?=$this->prodInfo['1']['title']?>">
 			<p><strong>Название: </strong><span><?=$this->prodInfo['1']['title']?></span></p>
 			<p><strong>Год выхода:</strong> <?=$this->prodInfo['1']['year']?></p>
 			<p><strong>Жанр:</strong> <?=$this->prodInfo['1']['section_title']?></p>
@@ -30,44 +30,22 @@
 			<p><strong>Описание:</strong></p>
 			<p><?=$this->prodInfo['1']['description']?></p>
 		</div>
+
+		<?$this->OtherProducts();?>
 		<div class="accompanying">
 			<h2>С этим товаром также заказывают:</h2>
 			<div class="card_small">
-				<img src="img/sm1.png" alt="#">
-				<a href="#" class="linck">Тори и Дин: Дорогой любви</a>
-				<p>300 руб.</p>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
+				<?
+				for ($i=1; $i <= count($this->othProd); $i++) { 
+				
+				?>
+				<img src="<?=$this->othProd[$i]['img']?>" alt="<?=$this->othProd[$i]['title']?>#">
+				<a href="<?=$this->othProd[$i]['link']?>" class="linck"><?=$this->othProd[$i]['title']?></a>
+				<p><?=$this->othProd[$i]['price']?></p>
+				<a href="<?=$this->othProd[$i]['link_cart']?>" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
+				<?}?>
 			</div>
-			<div class="card_small">
-				<img src="img/sm2.png" alt="#">
-				<a href="#" class="linck">Три богатыря на дальних берегах</a>
-				<p>250 руб.</p>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
-			</div>
-			<div class="card_small">
-				<img src="img/sm3.png" alt="#">
-				<a href="#" class="linck">Хранители</a>
-				<p>170 руб.</p>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
-			</div>
-			<div class="card_small">
-				<img src="img/sm4.png" alt="#">
-				<a href="#" class="linck">Мамы</a>
-				<p>280 руб.</p>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
-			</div>
-			<div class="card_small">
-				<img src="img/sm5.png" alt="#">
-				<a href="#" class="linck">Джунгли</a>
-				<p>315 руб.</p>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
-			</div>
-			<div class="card_small">
-				<img src="img/sm6.png" alt="#">
-				<a href="#" class="linck">Джентельмены, удачи!</a>
-				<p>150 руб.</p>
-				<a href="#" class="btn2">В корзину <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i></a>
-			</div>
+			
 		</div>
 	</div>
 	<div class="clear"></div>

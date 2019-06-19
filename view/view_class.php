@@ -9,6 +9,6 @@ class View extends MainView
     {   
     	parent::__construct();
     	include_once 'tmpl/content.tpl';
-        
+        $this->smalltitle = 'Новинки';
     }
 }

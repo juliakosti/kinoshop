@@ -1,6 +1,6 @@
 <div class="content ">
 <span></span>
-		<h2>Новинки</h2>
+		<h2><?=$this->smalltitle;?></h2>
 		<div class="sorting">
 			<p>Сортировать по: 
 				<span>цене (

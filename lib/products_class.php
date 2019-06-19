@@ -31,7 +31,7 @@ class Products extends BaseReq
 		return $this->transformProd($this->getNewProd($param, $order));
 	}
 
-	private function transformProd($arr)//Трансформируем исходный массив
+	public function transformProd($arr)//Трансформируем исходный массив
 	{   
 		foreach ($arr as $key => $value) {
 			$arr[$key]['img'] = $this->config->dirProdImg.$arr[$key]['img'];
@@ -88,6 +88,7 @@ class Products extends BaseReq
 	public function getProdBySection($section_id, $order='title', $desc=false)
 	{
 		$sectionProd = $this->getOnebySmth('*', $this->tablename, 'section_id', $section_id, $order, $desc);
+		return $sectionProd;
 		
 	}
 

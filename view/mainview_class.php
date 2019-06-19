@@ -24,10 +24,10 @@ class MainView
 	public $prodInfo;
 	public $searchResult;
 
-	private $config;
-	private $products;
-	private $sections;
-	private $order;
+	protected $config;
+	protected $products;
+	protected $sections;
+	protected $order;
 
 	public function __construct()
 
@@ -46,7 +46,7 @@ class MainView
 		$this->h1 = $h1;
 		$this->seourl = $seourl;
 		$this->inc = $inc;
-		$this->smalltitle = $smalltitle;
+		$this->smalltitle = 'Новинки';
 
 		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();

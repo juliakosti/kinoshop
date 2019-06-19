@@ -26,7 +26,7 @@ elseif ($func == 'product')
 	{
 		$manage->getProduct();
 	}
-/*elseif ($func == 'search') 
+/*elseif ($func == 'section') 
 	{
 		$manage->getBySearch();
 	}	*/	
