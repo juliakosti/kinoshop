@@ -8,7 +8,8 @@ class View extends MainView
 	 public function __construct()
     {   
     	parent::__construct();
+    	$this->smalltitle = 'Новинки';
     	include_once 'tmpl/content.tpl';
-        $this->smalltitle = 'Новинки';
+        
     }
 }

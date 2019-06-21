@@ -13,7 +13,7 @@ class Page extends MainView
 
 	public function __construct()
 	{
-		parent::__construct();
+		parent::__construct('g', 'g', 'g', 'g', 'g', 'g', 'g');
 
 		$this->viewPage();
 

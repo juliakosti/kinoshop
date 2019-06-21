@@ -29,7 +29,7 @@ class MainView
 	protected $sections;
 	protected $order;
 
-	public function __construct()
+	public function __construct($title=NULL, $description=NULL, $keyword=NULL, $h1=NULL, $seourl=NULL, $inc=NULL, $smalltitle=NULL)
 
 	{
 		$this->config = new Config();
@@ -46,7 +46,7 @@ class MainView
 		$this->h1 = $h1;
 		$this->seourl = $seourl;
 		$this->inc = $inc;
-		$this->smalltitle = 'Новинки';
+		$this->smalltitle = $smalltitle;
 
 		$this->secArray = $this->sections->getSections();
 		$this->newsArray = $this->products->news();
