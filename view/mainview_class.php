@@ -6,11 +6,12 @@ require_once 'lib/url_class.php';
 require_once 'lib/cart_class.php';
 require_once 'lib/order_class.php';
 require_once 'lib/search_class.php';
+require_once 'lib/check_class.php';
 
 class MainView
 
 {
-	public $title;
+	public $pagetitle;
 	public $description;
 	public $keyword;
 	public $h1;
@@ -36,11 +37,12 @@ class MainView
 		$this->products = new Products();
 		$this->sections = new Sections();
 		$this->url = new Url();
+		$this->check = new Check();
 		$this->cart = new Cart();
 		$this->order = new Order();
 		$this->search = new Search();
 
-		$this->title = $title;
+		$this->pagetitle = $pagetitle;
 		$this->description = $description;
 		$this->keyword = $keyword;
 		$this->h1 = $h1;
@@ -57,10 +59,7 @@ class MainView
 
 	}
 
-    public function Try() 
-	{
-		
-	}
+    
 
 
 

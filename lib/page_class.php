@@ -9,12 +9,24 @@ require_once 'view/mainview_class.php';
 
 class Page extends MainView
 {
-	
+	private $myclass;
 
 	public function __construct()
 	{
-		parent::__construct('g', 'g', 'g', 'g', 'g', 'g', 'g');
+		parent::__construct();
+		$view = $this->url->getView();
+		$class = ucfirst($view."View");
+		if ($this->url->fileExists(strtolower('view/'.$class."_class.php"))) 
+		{
+			include_once 'view/'.$class.'_class.php';
+			$this->myclass = new $class();
+		}
+		else {
+			header("Location: ".$this->url->notFound());
+			exit;
+		}
 
+		
 		$this->viewPage();
 
 
@@ -50,18 +62,7 @@ class Page extends MainView
 	public function getContent()
 	{
 		
-		$view = $this->url->getView();
-	
-		$class = ucfirst($view."View");
-		if ($this->url->fileExists(strtolower('view/'.$class."_class.php"))) 
-		{
-			include_once 'view/'.$class.'_class.php';
-			new $class();
-		}
-		else {
-			header("Location: ".$url->notFound());
-			exit;
-		}
+		return $this->myclass->getViewContent();
 
 				
 	}

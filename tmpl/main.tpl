@@ -29,9 +29,9 @@
 		
 	<!--/Боковая панель -->
 	<!--Основной контент -->
-	
+	    
 		<?
-
+		//echo $_SERVER['REQUEST_URI'];
 		$this->getContent();?>
 		<!--content.tpl -->
 				

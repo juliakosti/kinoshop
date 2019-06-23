@@ -9,7 +9,12 @@ class NotfoundView extends MainView
 	 public function __construct()
     {   
     	parent::__construct();
-    	include_once 'tmpl/404.tpl';
+    	//include_once 'tmpl/404.tpl';
         
+    }
+
+    public function getViewContent()
+    {
+        include_once 'tmpl/404.tpl';
     }
 }

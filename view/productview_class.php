@@ -11,7 +11,7 @@ class ProductView extends MainView
     	parent::__construct();
     	$this->prodInfo = $this->products->getOneProductByID($id);
     	$this->othProd = $this->OtherProducts();
-    	include_once 'tmpl/product.tpl';
+    	//include_once 'tmpl/product.tpl';
         
     }
 
@@ -23,5 +23,10 @@ class ProductView extends MainView
     	
     	
     	return $arr;
+    }
+
+    public function getViewContent()
+    {
+        include_once 'tmpl/product.tpl';
     }
 }

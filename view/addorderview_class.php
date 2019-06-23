@@ -11,4 +11,9 @@ class AddorderView extends MainView
     	
         
     }
+
+    public function getViewContent()
+    {
+        include_once 'tmpl/ordermessage.tpl';
+    }
 }

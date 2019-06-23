@@ -1,6 +1,8 @@
 <?php
 require_once 'basereq_class.php';
 require_once 'sections_class.php';
+require_once 'check_class.php';
+require_once 'url_class.php';
 
 class Products extends BaseReq 
 { 
@@ -14,6 +16,7 @@ class Products extends BaseReq
 		parent::__construct("sdvd_products");
 		$this->config = new Config();
 		$this->url = new Url();
+		$this->check = new Check();
 		$this->sections = new Sections();
 		
 	}
@@ -127,6 +130,15 @@ class Products extends BaseReq
 		{
 			$id = $_GET['id'];
 		}
+		if (!$this->check->checkId($id)) {
+			header("Location: ".$this->url->notFound());
+			exit();
+		}
+		if (!$this->existsID($id))
+			{
+				header("Location: ".$this->url->notFound());
+				exit();
+			} 
 		$arr = $this->getOnebySmth('id, section_id, title, price, img, price, year, country, director, play, cast, description', $this->tablename, 'id', $id);
 		$arr = $this->transformProd($arr);
 

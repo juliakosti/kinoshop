@@ -75,6 +75,7 @@ class Url
 	public function order() {
 		return $this->returnURL("order");
 	}
+
 	
 	public function message() {
 		return $this->returnURL("message");

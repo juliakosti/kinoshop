@@ -3,6 +3,8 @@ require_once 'config_class.php';
 require_once 'products_class.php';
 require_once 'discounts_class.php';
 require_once 'order_class.php';
+require_once 'url_class.php';
+require_once 'check_class.php';
 
 class Manage {
 
@@ -10,24 +12,35 @@ class Manage {
 	private $products;
 	private $discounts;
 	private $order;
+	private $url;
 
 	
 	
 
 	public function __construct() 
 	{
-		//session_start();
+		$this->check = new Check();
 		$this->config = new Config();
 		$this->products = new Products();
 		$this->discounts = new Discounts();
 		$this->order = new Order();
+		$this->url = new Url();
 		
 	}
 
 	public function addToCart()
 	{
 		$id = $_REQUEST['id'];//Попробовать найти другой вариант
-		if (!$this->products->existsID($id)) return false;
+		if (!$this->check->checkId($id)) {
+			header("Location: ".$this->url->notFound());
+			exit();
+		}
+		
+		if (!$this->products->existsID($id))
+			{
+				header("Location: ".$this->url->notFound());
+				exit();
+			} 
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
 		echo '<script>setTimeout(\'location="'.$_SERVER['HTTP_REFERER'].'"\', 0)</script>';
@@ -36,13 +49,17 @@ class Manage {
 	public function deleteCart()
 	{	
 		$id = $_REQUEST['id'];//Попробовать найти другой вариант
-		if (!$this->products->existsID($id)) return false;
+		if (!$this->check->checkId($id)) {
+			header("Location: ".$this->url->notFound());
+			exit();
+		}
+		
+		if (!$this->products->existsID($id))
+			{
+				header("Location: ".$this->url->notFound());
+				exit();
+			} 
 		$ids = explode(',', $_SESSION['cart']);
-		echo '<pre>';
-		print_r($ids);
-		echo '</pre>';
-		echo '<hr>';
-		echo $id;
 		for ($i=0; $i <= count($ids); $i++) 
 		{ 
 			if ($ids[$i] == $id) 
@@ -50,12 +67,7 @@ class Manage {
 					unset($ids[$i]);
 				}
 		}
-		echo '<pre>';
-		print_r($ids);
-		echo '</pre>';
 		$_SESSION['cart'] = implode(',', $ids);
-		echo '<hr>';
-		echo $_SESSION['cart'];
 		echo '<script>setTimeout(\'location="/cart"\')</script>';
 		
 	}
@@ -94,12 +106,9 @@ class Manage {
 		
 	public function saveOrder()
 	{
-		
 		$this->order->setIntoOrders();
-
 		session_unset();
-		echo 'Ваш заказ успешно отправлен. Менеджер свяжется с Вами в ближайшее время';
-		echo '<script>setTimeout(\'location="/"\', 5000)</script>';
+		echo '<script>setTimeout(\'location="/addorder"\', 0)</script>';
 	}	
 	
 

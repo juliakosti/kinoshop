@@ -8,7 +8,12 @@ class SearchView extends MainView
 	 public function __construct()
     {   
     	parent::__construct();
-    	include_once 'tmpl/searchresult.tpl';
+    	//include_once 'tmpl/searchresult.tpl';
         
+    }
+
+    public function getViewContent()
+    {
+        include_once 'tmpl/searchresult.tpl';
     }
 }

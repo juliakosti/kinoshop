@@ -8,7 +8,12 @@ class OrderView extends MainView
 	 public function __construct()
     {   
     	parent::__construct();
-    	include_once 'tmpl/order.tpl';
+    	//include_once 'tmpl/order.tpl';
         
+    }
+
+    public function getViewContent()
+    {
+        include_once 'tmpl/order.tpl';
     }
 }

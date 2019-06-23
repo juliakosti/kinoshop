@@ -11,4 +11,23 @@ class Check
 	    
 	    return $value;
 	}
+
+	public function checkId($id)
+	{
+		$id = intval($this->cleanFormData($id));
+		/*if ((!isset($id)) || ($id == '')) 
+		{
+			return false;
+		}
+		elseif (!(is_int($id))) 
+		{
+			return false;
+		}
+		elseif ($id < 0) 
+		{
+			return false;
+		}
+		else return true;*/
+	}
+
 }
