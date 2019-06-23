@@ -1,5 +1,7 @@
 <?php
 require_once 'basereq_class.php';
+require_once 'check_class.php';
+require_once 'url_class.php';
 
 class Sections extends BaseReq 
 { 
@@ -10,6 +12,7 @@ class Sections extends BaseReq
 	{
 	parent::__construct("sdvd_sections");
 	$this->url = new URL;
+	$this->check = new Check();
 	}
 
 	public function getSections() 
@@ -35,8 +38,17 @@ class Sections extends BaseReq
 	public function getSection($section_id)
 	{
 		$section = $this->getOnebySmth('id, title', $this->tablename, 'id', $section_id);
-		
-		return $section;
+
+			if ($section) 
+			{
+				return $section;
+			}
+			else 
+			{
+				echo 'несуществующий жанр';
+				exit();
+			}
+			
 	}
 
 }

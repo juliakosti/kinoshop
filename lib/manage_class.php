@@ -31,16 +31,7 @@ class Manage {
 	public function addToCart()
 	{
 		$id = $_REQUEST['id'];//Попробовать найти другой вариант
-		if (!$this->check->checkId($id)) {
-			header("Location: ".$this->url->notFound());
-			exit();
-		}
-		
-		if (!$this->products->existsID($id))
-			{
-				header("Location: ".$this->url->notFound());
-				exit();
-			} 
+		$this->products->checkProductId($id);
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
 		echo '<script>setTimeout(\'location="'.$_SERVER['HTTP_REFERER'].'"\', 0)</script>';
@@ -49,16 +40,7 @@ class Manage {
 	public function deleteCart()
 	{	
 		$id = $_REQUEST['id'];//Попробовать найти другой вариант
-		if (!$this->check->checkId($id)) {
-			header("Location: ".$this->url->notFound());
-			exit();
-		}
-		
-		if (!$this->products->existsID($id))
-			{
-				header("Location: ".$this->url->notFound());
-				exit();
-			} 
+		$this->products->checkProductId($id);
 		$ids = explode(',', $_SESSION['cart']);
 		for ($i=0; $i <= count($ids); $i++) 
 		{ 

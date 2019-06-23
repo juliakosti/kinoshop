@@ -24,12 +24,7 @@ class SectionView extends MainView
     private function getSmallTitle()
     {
     	$section_id = $_GET['section_id'];
-        if (!$this->check->checkId($id)) 
-        {
-            header(Location: ".$this->url->notFound());
-            exit();
-        }
-    	$arr = $this->sections->getSection($section_id);
+        $arr = $this->sections->getSection($section_id);
     	$title = $arr['1']['title'];
         return $title;
     }

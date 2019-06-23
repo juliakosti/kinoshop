@@ -66,7 +66,21 @@ class Products extends BaseReq
 		
 	}
 
-	public function existsID($id) 
+	public function checkProductId($id)
+	{
+		if (!$this->check->checkId($id)) 
+		{
+			header("Location: ".$this->url->notFound());
+			exit();
+		}
+		if (!$this->existsID($id))
+		{
+			header("Location: ".$this->url->notFound());
+			exit();
+		}	
+	}
+
+	private function existsID($id) 
 	{
 		return $this->getOnebySmth('id', $this->tablename, 'id', $id);
 		 
@@ -130,15 +144,7 @@ class Products extends BaseReq
 		{
 			$id = $_GET['id'];
 		}
-		if (!$this->check->checkId($id)) {
-			header("Location: ".$this->url->notFound());
-			exit();
-		}
-		if (!$this->existsID($id))
-			{
-				header("Location: ".$this->url->notFound());
-				exit();
-			} 
+		$this->checkProductId($id); 
 		$arr = $this->getOnebySmth('id, section_id, title, price, img, price, year, country, director, play, cast, description', $this->tablename, 'id', $id);
 		$arr = $this->transformProd($arr);
 
