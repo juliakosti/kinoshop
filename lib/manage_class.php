@@ -31,6 +31,7 @@ class Manage {
 	public function addToCart()
 	{
 		$id = $_REQUEST['id'];//Попробовать найти другой вариант
+		$id = $this->check->cleanFormData($id);
 		$this->products->checkProductId($id);
 		if ($_SESSION['cart']) $_SESSION['cart'] .=", $id";
 		else $_SESSION['cart'] = $id;
@@ -40,6 +41,7 @@ class Manage {
 	public function deleteCart()
 	{	
 		$id = $_REQUEST['id'];//Попробовать найти другой вариант
+		$id = $this->check->cleanFormData($id);
 		$this->products->checkProductId($id);
 		$ids = explode(',', $_SESSION['cart']);
 		for ($i=0; $i <= count($ids); $i++) 

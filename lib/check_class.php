@@ -14,7 +14,6 @@ class Check
 
 	public function checkId($id)
 	{
-		$id = intval($this->cleanFormData($id));
 		if ((!isset($id)) || ($id == '')) 
 		{
 			return false;
@@ -26,4 +25,5 @@ class Check
 		else return true;
 	}
 
+	
 }

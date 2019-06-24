@@ -10,6 +10,7 @@ class Products extends BaseReq
     private $config;
     private $url;
     private $sections;
+    private $check;
 
 	function __construct()	
 	{
@@ -36,7 +37,8 @@ class Products extends BaseReq
 
 	public function transformProd($arr)//Трансформируем исходный массив
 	{   
-		foreach ($arr as $key => $value) {
+		foreach ($arr as $key => $value)
+		{
 			$arr[$key]['img'] = $this->config->dirProdImg.$arr[$key]['img'];
 			$arr[$key]['link'] = $this->url->product($arr[$key]['id']);
 			$arr[$key]['link_cart'] = $this->url->addCart($arr[$key]['id']);
@@ -53,10 +55,9 @@ class Products extends BaseReq
     
     private function getNewProd($param, $order) 
 	{   
-		
-		$section_id = $_GET['section_id'];
+		$section_id = intval($this->check->cleanFormData($_GET['section_id']));
 		$newProd = $this->getNews('id, title, img, price', $this->tablename, $section_id);
-		foreach ($newProd as $key => $row) 
+		foreach($newProd as $key => $row)
 		{
 			$array_price[$key] = $row[$param];
 		}
@@ -144,6 +145,7 @@ class Products extends BaseReq
 		{
 			$id = $_GET['id'];
 		}
+		$id = $this->check->cleanFormData($id);
 		$this->checkProductId($id); 
 		$arr = $this->getOnebySmth('id, section_id, title, price, img, price, year, country, director, play, cast, description', $this->tablename, 'id', $id);
 		$arr = $this->transformProd($arr);

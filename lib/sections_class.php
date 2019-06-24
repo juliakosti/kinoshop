@@ -35,20 +35,31 @@ class Sections extends BaseReq
 		
 	}
 
+	public function checkSectionId($section_id)
+	{
+		if (!$this->check->checkId($section_id)) 
+		{
+			echo '<script>setTimeout(\'location="'.$this->url->notFound().'"\', 0)</script>';
+			exit();
+		}
+		if (!$this->existSectionID($section_id))
+		{
+			echo '<script>setTimeout(\'location="'.$this->url->notFound().'"\', 0)</script>';
+			exit();
+		}	
+	}
+
+	private function existSectionID($section_id)
+	{
+		return $this->getOnebySmth('id', $this->tablename, 'id', $section_id);
+	}
+
 	public function getSection($section_id)
 	{
+		$this->checkSectionId($section_id);
 		$section = $this->getOnebySmth('id, title', $this->tablename, 'id', $section_id);
-
-			if ($section) 
-			{
-				return $section;
-			}
-			else 
-			{
-				echo 'несуществующий жанр';
-				exit();
-			}
-			
+		return $section;
+					
 	}
 
 }
