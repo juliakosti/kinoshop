@@ -39,13 +39,13 @@ abstract class BaseReq extends BaseConnect {
 		}
 	}
 
-	protected function getNews($params, $tablename, $section_id)
+	protected function getNews($params, $tablename, $section_id, $limit, $offset=0)
 	{	
 		if ($section_id) 
 			{
-				$query_inn = "SELECT $params from $tablename WHERE section_id = $section_id ORDER BY date DESC LIMIT 12";
+				$query_inn = "SELECT $params from $tablename WHERE section_id = $section_id ORDER BY date DESC LIMIT $limit OFFSET $offset";
 			} else
-				$query_inn = "SELECT $params from $tablename ORDER BY date DESC LIMIT 12";
+				$query_inn = "SELECT $params from $tablename ORDER BY date DESC LIMIT $limit OFFSET $offset";
 
 		try 
 		{

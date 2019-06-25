@@ -100,6 +100,10 @@ class Url
 	public function section($id) {
 		return $this->returnURL("section?section_id=$id");
 	}
+
+	/*public function pagenum($i) {
+		return $this->returnURL("?page=$i");
+	}*/
 	
 	public function product($id) {
 		return $this->returnURL("product?id=$id");

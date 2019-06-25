@@ -3,6 +3,7 @@ require_once 'basereq_class.php';
 require_once 'sections_class.php';
 require_once 'check_class.php';
 require_once 'url_class.php';
+require_once 'config_class.php';
 
 class Products extends BaseReq 
 { 
@@ -11,6 +12,7 @@ class Products extends BaseReq
     private $url;
     private $sections;
     private $check;
+    
 
 	function __construct()	
 	{
@@ -19,6 +21,7 @@ class Products extends BaseReq
 		$this->url = new Url();
 		$this->check = new Check();
 		$this->sections = new Sections();
+		$this->config = new Config();
 		
 	}
 	
@@ -47,16 +50,52 @@ class Products extends BaseReq
 		return $arr;
 	}
 
-	public function getAllProducts($order ='title', $desc = false) 
+	public function getCountOfPages()
 	{
+		$section_id = intval($this->check->cleanFormData($_GET['section_id']));
+		if ($section_id) 
+		{
+			$arr = $this->getProdBySection($section_id, $order='title', $desc=false);
+		}
+		else 
+		{	
+			$arr = $this->getAllProducts('id', $this->tablename);
+		}
+		$pagemax = count($arr)/$this->config->count_on_page;
+		if ($pagemax > 1) 
+		{
+			for ($i=1; $i <= $pagemax; $i++) 
+			{ 
+				$pagenum[$i] = $i;
+			}
+		}
+		else $pagenum = false;
+		return $pagenum;
+	}
+
+	private function getAllProducts($order ='title', $desc = false) 
+	{
+		
 		return $this->getAll("id, title, price", $this->tablename, $order, $desc);
 	}
 
     
-    private function getNewProd($param, $order) 
+    private function getNewProdFromBase() 
 	{   
 		$section_id = intval($this->check->cleanFormData($_GET['section_id']));
-		$newProd = $this->getNews('id, title, img, price', $this->tablename, $section_id);
+		if ($_REQUEST['page']) 
+		{
+			$offset = $this->config->count_on_page*($_REQUEST['page']-1);
+			echo $offset;
+		}
+		else $offset=0;
+		$newProd = $this->getNews('id, title, img, price', $this->tablename, $section_id, $this->config->count_on_page, $offset);
+		return $newProd;
+	}	
+
+	private function getNewProd($param, $order) 
+	{
+		$newProd = $this->getNewProdFromBase();
 		foreach($newProd as $key => $row)
 		{
 			$array_price[$key] = $row[$param];

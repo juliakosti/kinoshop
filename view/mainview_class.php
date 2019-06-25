@@ -24,6 +24,7 @@ class MainView
 	public $cartProd;
 	public $prodInfo;
 	public $searchResult;
+	public $pagenum;
 
 	protected $config;
 	protected $products;
@@ -55,6 +56,7 @@ class MainView
 		$this->cartInfo = $this->cart->setInfoCart();
 		$this->cartProd = $this->cart->getMyCart();
 		$this->searchResult = $this->search->getDataFromSearch();
+		$this->pagenum = $this->products->getCountOfPages();
 
 
 	}

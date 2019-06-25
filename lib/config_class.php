@@ -16,7 +16,7 @@ class Config {
 	//public $adm_login = "Jul";
 	//public $adm_password = "";
 	
-	//public $count_on_page = 8;
+	public $count_on_page = 12;
 	//public $count_others = 6;
 	
 	//public $pagination_count = 10;
