@@ -101,9 +101,6 @@ class Url
 		return $this->returnURL("section?section_id=$id");
 	}
 
-	/*public function pagenum($i) {
-		return $this->returnURL("?page=$i");
-	}*/
 	
 	public function product($id) {
 		return $this->returnURL("product?id=$id");
@@ -158,10 +155,6 @@ class Url
 
 	public function fileExists($file) {
 		$arr = explode(PATH_SEPARATOR, get_include_path());
-		/*echo '<pre>';
-		print_r($arr);
-		echo '</pre>';
-		echo '<hr>';*/
 		foreach ($arr as $val) {
 			if (file_exists($val."/".$file)) return true;
 		}

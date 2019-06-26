@@ -86,7 +86,6 @@ class Products extends BaseReq
 		if ($_REQUEST['page']) 
 		{
 			$offset = $this->config->count_on_page*($_REQUEST['page']-1);
-			echo $offset;
 		}
 		else $offset=0;
 		$newProd = $this->getNews('id, title, img, price', $this->tablename, $section_id, $this->config->count_on_page, $offset);
