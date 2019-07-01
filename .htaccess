@@ -8,6 +8,7 @@ php_value register_globals 0
 RewriteBase /
 RewriteCond %{HTTP_HOST} (.*)
 RewriteCond %{REQUEST_URI} /$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)(/)$ $1 [L,R=301]
 
 
